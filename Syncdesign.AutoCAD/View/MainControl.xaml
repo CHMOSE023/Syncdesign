@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="Syncdesign.AutoCAD.View.MainControl"
+             xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"            
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Syncdesign.AutoCAD.View"
+             mc:Ignorable="d" 
+             Background="{DynamicResource ApplicationBackgroundBrush}"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ui:ThemesDictionary Theme="Light" />
+                <ui:ControlsDictionary /> 
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>        
+    </UserControl.Resources>
+    <StackPanel >       
+        <ui:SymbolIcon Symbol="Settings48"/> 
+        <ui:TextBox Margin="5" >
+            Hello AutoCAD!
+        </ui:TextBox>
+    </StackPanel>
+</UserControl>
