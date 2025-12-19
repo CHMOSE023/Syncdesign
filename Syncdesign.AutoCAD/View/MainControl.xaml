@@ -5,21 +5,31 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Syncdesign.AutoCAD.View"
+             xmlns:sync="clr-namespace:Syncdesign.ControlLibrary.Control;assembly=Syncdesign.ControlLibrary"
              mc:Ignorable="d" 
              Background="{DynamicResource ApplicationBackgroundBrush}"
              d:DesignHeight="450" d:DesignWidth="800">
+  
     <UserControl.Resources>
-        <ResourceDictionary>
+        <ResourceDictionary>            
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Syncdesign.AutoCAD;component/Themes/Generic.xaml" />
+                <ResourceDictionary Source="/Syncdesign.ControlLibrary;component/Themes/Generic.xaml" />
                 <ui:ThemesDictionary Theme="Light" />
-                <ui:ControlsDictionary /> 
+                <ui:ControlsDictionary />
             </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>        
+        </ResourceDictionary>             
     </UserControl.Resources>
     <StackPanel >       
         <ui:SymbolIcon Symbol="Settings48"/> 
         <ui:TextBox Margin="5" >
             Hello AutoCAD!
         </ui:TextBox>
+        <local:MyControl> 
+            
+        </local:MyControl>
+        <sync:SyncButton>
+            SyncButton
+        </sync:SyncButton>
     </StackPanel>
 </UserControl>

@@ -160,17 +160,25 @@
     <Compile Include="View\MainControl.xaml.cs">
       <DependentUpon>MainControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\MyControl.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Syncdesign.ControlLibrary\Syncdesign.ControlLibrary.csproj">
+      <Project>{e00bf7c8-5a8f-4b24-a6a3-da5a8b3ab9b4}</Project>
+      <Name>Syncdesign.ControlLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
