@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <PackageId>Syncdesign.Ui</PackageId>
+    <TargetFrameworks>net8.0-windows;net472</TargetFrameworks>
+    <Platforms>x64</Platforms>
+    <LangVersion>preview</LangVersion>
+    <UseWPF>true</UseWPF>
+    <LangVersion>preview</LangVersion>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <PolySharpExcludeGeneratedTypes>System.Runtime.CompilerServices.OverloadResolutionPriorityAttribute;System.Diagnostics.CodeAnalysis.UnscopedRefAttribute</PolySharpExcludeGeneratedTypes>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Resources\Fonts\FluentSystemIcons-Filled.ttf" />
+    <None Remove="Resources\Fonts\FluentSystemIcons-Regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Fonts\FluentSystemIcons-Filled.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\FluentSystemIcons-Regular.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+</Project>

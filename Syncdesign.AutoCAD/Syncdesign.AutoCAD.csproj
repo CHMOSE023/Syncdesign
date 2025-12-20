@@ -146,12 +146,6 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
-    <Reference Include="Wpf.Ui, Version=4.1.0.0, Culture=neutral, PublicKeyToken=11f9f5cc97b3ffd6, processorArchitecture=MSIL">
-      <HintPath>..\packages\WPF-UI.4.1.0\lib\net472\Wpf.Ui.dll</HintPath>
-    </Reference>
-    <Reference Include="Wpf.Ui.Abstractions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=11f9f5cc97b3ffd6, processorArchitecture=MSIL">
-      <HintPath>..\packages\WPF-UI.Abstractions.4.1.0\lib\net462\Wpf.Ui.Abstractions.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExtensionApplication.cs" />
@@ -175,9 +169,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Syncdesign.ControlLibrary\Syncdesign.ControlLibrary.csproj">
-      <Project>{e00bf7c8-5a8f-4b24-a6a3-da5a8b3ab9b4}</Project>
-      <Name>Syncdesign.ControlLibrary</Name>
+    <ProjectReference Include="..\Syncdesign.Ui\Syncdesign.Ui.csproj">
+      <Project>{170a7a9f-cad4-4288-9a3b-a567d98f4813}</Project>
+      <Name>Syncdesign.Ui</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

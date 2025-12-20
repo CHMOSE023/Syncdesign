@@ -1,35 +1,23 @@
-﻿<UserControl x:Class="Syncdesign.AutoCAD.View.MainControl"
-             xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"            
+﻿<UserControl x:Class="Syncdesign.AutoCAD.View.MainControl"           
+             xmlns:bim="http://bimhub.top/syncdesign/2026/xaml" 
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Syncdesign.AutoCAD.View"
-             xmlns:sync="clr-namespace:Syncdesign.ControlLibrary.Control;assembly=Syncdesign.ControlLibrary"
+             xmlns:local="clr-namespace:Syncdesign.AutoCAD.View"             
              mc:Ignorable="d" 
              Background="{DynamicResource ApplicationBackgroundBrush}"
-             d:DesignHeight="450" d:DesignWidth="800">
-  
+             d:DesignHeight="450" d:DesignWidth="800"
+             >
     <UserControl.Resources>
         <ResourceDictionary>            
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Syncdesign.AutoCAD;component/Themes/Generic.xaml" />
-                <ResourceDictionary Source="/Syncdesign.ControlLibrary;component/Themes/Generic.xaml" />
-                <ui:ThemesDictionary Theme="Light" />
-                <ui:ControlsDictionary />
+                <bim:ControlsDictionary/>
+                <bim:ThemesDictionary  /> 
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>             
     </UserControl.Resources>
-    <StackPanel >       
-        <ui:SymbolIcon Symbol="Settings48"/> 
-        <ui:TextBox Margin="5" >
-            Hello AutoCAD!
-        </ui:TextBox>
-        <local:MyControl> 
-            
-        </local:MyControl>
-        <sync:SyncButton>
-            SyncButton
-        </sync:SyncButton>
+    <StackPanel >
+        <bim:SymbolIcon  Symbol="Settings48"/>
     </StackPanel>
 </UserControl>

@@ -29,7 +29,7 @@ namespace Syncdesign.AutoCAD
 
                 MainControl mainControl = new MainControl();
                 PaletteSet.MinimumSize = new System.Drawing.Size(300, 300);
-                PaletteSet.AddVisual("工作管理", mainControl, true);
+                PaletteSet.AddVisual("协同设计", mainControl, true);
 
                 PaletteSet.Style = PaletteSetStyles.NameEditable | PaletteSetStyles.ShowCloseButton;
                 PaletteSet.Dock = DockSides.Left;
