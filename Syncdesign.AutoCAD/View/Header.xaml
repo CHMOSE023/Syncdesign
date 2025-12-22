@@ -5,8 +5,77 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Syncdesign.AutoCAD.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Label>Header...</Label>            
+             Background="LightGray"
+             d:DesignHeight="150" d:DesignWidth="800">
+    <Grid Margin="3 6 3 6">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Border Width="60" Height="60"  Grid.Column="0" >
+                <Image Source="pack://application:,,,/Syncdesign.Ui;component/Resources/Images/avatar.jpg" 
+                       Stretch="UniformToFill">
+                    <Image.Clip>
+                        <EllipseGeometry Center="30,30" RadiusX="30" RadiusY="30" />
+                    </Image.Clip>
+                </Image>
+            </Border>
+            <Grid Grid.Column="1" Margin="10 0 0 0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock  Grid.Row="0" Margin="0 3 0 0" Text="用户名" FontWeight="Bold" Foreground="Black" FontSize="14"/>
+                <!-- 单击修改    -->
+                <TextBlock  Grid.Row="1" Margin="0 3 0 0" Text="个性签名..." Foreground="Gray" FontSize="12"/>
+                <!-- 快捷命令按钮 -->
+                <StackPanel Grid.Row="2" Margin="0 3 0 0" Orientation="Horizontal" VerticalAlignment="Center" >
+                    <Button Content="A" Margin="3 0"/>
+                    <Button Content="B" Margin="3 0"/>
+                    <Button Content="C" Margin="3 0"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <!--底部搜索-->
+        <Grid Grid.Row="1" Margin="3 6 3 3" Height="28" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="30" />
+            </Grid.ColumnDefinitions>
+            <Border Margin="0 0 8 0" CornerRadius="6" Background="White"  BorderBrush="#CCC"  BorderThickness="0" >
+                <Grid Margin="4" Grid.Column="0">
+                    <TextBox x:Name="SearchBox"
+                               Height="20"  
+                               BorderThickness="0"
+                               FontSize="15"                           
+                               TextChanged="SearchBox_TextChanged"/>
+                    <TextBlock x:Name="SearchPlaceholder"
+                              Text="搜索…"
+                              Foreground="Gray"
+                              Margin="2,0,0,0"
+                              VerticalAlignment="Center"
+                              IsHitTestVisible="False"/>
+
+                    <Popup x:Name="SuggestPopup"                            
+                             PlacementTarget="{Binding ElementName=SearchBox}"
+                             Placement="Bottom"                             
+                             StaysOpen="False">
+                        <ListBox MinWidth="{Binding ActualWidth, ElementName=SearchBox}">
+                            <ListBoxItem Content="打开项目"/>
+                            <ListBoxItem Content="同步模型"/>
+                            <ListBoxItem Content="导出 DWG"/>
+                            <ListBoxItem Content="插件设置"/>
+                        </ListBox>
+                    </Popup>
+                </Grid>
+            </Border>
+            <Button Grid.Column="2">+</Button>
+        </Grid>
     </Grid>
 </UserControl>

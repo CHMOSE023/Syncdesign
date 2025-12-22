@@ -24,5 +24,11 @@ namespace Syncdesign.AutoCAD.View
         {
             InitializeComponent();
         }
+
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SearchPlaceholder.Visibility = string.IsNullOrEmpty(SearchBox.Text) ? Visibility.Visible : Visibility.Collapsed;
+            SuggestPopup.IsOpen = !string.IsNullOrWhiteSpace(SearchBox.Text);
+        }
     }
 }
