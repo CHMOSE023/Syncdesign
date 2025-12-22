@@ -5,6 +5,7 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/Syncdesign.Ui;component/Resources/Fonts.xaml" />
         
-        <ResourceDictionary Source="pack://application:,,,/Syncdesign.Ui;component/Controls/Button/Button.xaml" />        
+        <ResourceDictionary Source="pack://application:,,,/Syncdesign.Ui;component/Controls/Button/Button.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Syncdesign.Ui;component/Controls/InlineEditableText/InlineEditableText.xaml" />        
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

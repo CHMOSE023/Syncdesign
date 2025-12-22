@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Syncdesign.Ui.Controls
 {
+    // https://fluenticons.co/
     public enum SymbolFilled
     {
         /// <summary>

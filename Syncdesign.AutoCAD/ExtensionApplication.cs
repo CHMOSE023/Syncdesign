@@ -33,7 +33,8 @@ namespace Syncdesign.AutoCAD
 
                 PaletteSet.Style = PaletteSetStyles.NameEditable | PaletteSetStyles.ShowCloseButton;
                 PaletteSet.Dock = DockSides.Left;
-                PaletteSet.Visible = true; 
+                PaletteSet.Visible = true;
+                PaletteSet.KeepFocus = true;  // 保持焦点  
 
             }
             catch (System.Exception ex)

@@ -1,20 +1,72 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:Syncdesign.Ui.Controls">
-
-    <!--<Style TargetType="{x:Type local:SyncButton}">
+    xmlns:local="clr-namespace:Syncdesign.Ui.Controls">    
+    <Style x:Key="SyncdesignUiButton"  TargetType="{x:Type local:Button}">
+        <Setter Property="Height" Value="42"/>
+        <Setter Property="Width" Value="42"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Foreground" Value="Black"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type local:SyncButton}">
-                    <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}">
+                <ControlTemplate TargetType="{x:Type local:Button}">
+                    <Border x:Name="Bd"  CornerRadius="6"  BorderThickness="0"    Padding="{TemplateBinding Padding}"  Background="{TemplateBinding Background}">
+                        <ContentPresenter   HorizontalAlignment="Center"      VerticalAlignment="Center" />
                     </Border>
+                    <ControlTemplate.Triggers>
+                        <!-- Hover -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Bd" Property="Background"   Value="#F8F8FF"/>
+                        </Trigger>
+                        <!-- Pressed（仍然是圆角） -->
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="Bd"  Property="Background"  Value="#F5F5F5"/>
+                            <Setter Property="Foreground" Value="#696969"/>
+                        </Trigger>
+                        <!-- Selected -->
+                        <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                            <Setter Property="Foreground" Value="#2F4F4F"/>
+                            <Setter TargetName="Bd" Property="Background"   Value="#A9A9A9"/>
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
-            
         </Setter>
-        
-    </Style>-->
+    </Style>
+    <!--侧边栏按钮-->
+    <Style x:Key="SidebarButtonStyle" TargetType="{x:Type local:Button}">
+        <Setter Property="Height" Value="42"/>
+        <Setter Property="Width" Value="42"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:Button}">
+                    <Border x:Name="Bd" CornerRadius="6"  BorderThickness="0"  Background="{TemplateBinding Background}">
+                        <ContentPresenter   HorizontalAlignment="Center"      VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <!-- Hover -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Bd" Property="Background"   Value="LightGray"/>
+                        </Trigger>
+                        <!-- Pressed（仍然是圆角） -->
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="Bd" Property="Background" Value="#D0D0D0"/>
+                            <Setter Property="Foreground" Value="Gray"/>
+                        </Trigger>
+                        <!-- Selected -->
+                        <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                            <Setter Property="Foreground" Value="#2E4053"/>
+                            <Setter TargetName="Bd" Property="Background"   Value="#29000000"/>
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

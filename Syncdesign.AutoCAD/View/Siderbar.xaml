@@ -4,8 +4,8 @@
              xmlns:local="clr-namespace:Syncdesign.AutoCAD.View"
              xmlns:vm="clr-namespace:Syncdesign.AutoCAD.ViewModel"
              xmlns:bim="http://bimhub.top/syncdesign/2026/xaml"
-             Height="auto" Width="auto">
-    
+             Height="auto"
+             Width="auto">    
     <!-- 绑定 ViewModel -->
     <UserControl.DataContext>
         <vm:SidebarViewModel/>
@@ -16,42 +16,8 @@
             <ResourceDictionary.MergedDictionaries>
                 <bim:ControlsDictionary/>
                 <bim:ThemesDictionary/>
-            </ResourceDictionary.MergedDictionaries>
-            <!-- Sidebar Button 样式 -->
-            <Style x:Key="SidebarButtonStyle" TargetType="Button">
-                <Setter Property="Height" Value="42"/>
-                <Setter Property="Width" Value="42"/>                 
-                <Setter Property="Background" Value="Transparent"/>               
-                <Setter Property="Cursor" Value="Hand"/>
-                <Setter Property="Foreground" Value="Black"/>
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="Button">
-                            <Border x:Name="Bd"  Margin="3"  CornerRadius="4"  BorderThickness="0"  Background="{TemplateBinding Background}">
-                                <ContentPresenter   HorizontalAlignment="Center"      VerticalAlignment="Center"/>
-                            </Border>
-                            <ControlTemplate.Triggers>
-                                <!-- Hover -->
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="Bd" Property="Background"   Value="LightGray"/>
-                                </Trigger>
-                                <!-- Pressed（仍然是圆角） -->
-                                <Trigger Property="IsPressed" Value="True">
-                                    <Setter TargetName="Bd" Property="Background" Value="#D0D0D0"/>
-                                    <Setter Property="Foreground" Value="Gray"/>
-                                </Trigger>
-                                <!-- Selected -->
-                                <DataTrigger Binding="{Binding IsSelected}" Value="True">
-                                    <Setter Property="Foreground" Value="#2E4053"/>
-                                    <Setter TargetName="Bd" Property="Background"   Value="#29000000"/>
-                                </DataTrigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-            </Style>
-        </ResourceDictionary>
-       
+            </ResourceDictionary.MergedDictionaries>           
+        </ResourceDictionary>       
     </UserControl.Resources>
     <Grid >
         <Grid.RowDefinitions>
@@ -70,10 +36,9 @@
                     <StackPanel/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
-
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Button Command="{Binding Command}" Style="{StaticResource SidebarButtonStyle}" ToolTip="{Binding Title}">
+                    <bim:Button  Margin="4" Command="{Binding Command}" Style="{StaticResource SidebarButtonStyle}" >
                         <StackPanel>
                             <bim:SymbolIcon FontSize="20"   Symbol="{Binding Symbol}"/>
                             <Label Content="{Binding Title}" 
@@ -81,7 +46,7 @@
                                    FontSize="11"
                                    Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"/>
                         </StackPanel>
-                    </Button>
+                    </bim:Button>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
@@ -94,7 +59,7 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>   
                     <!--悬浮绑定 Title-->
-                    <Button  Command="{Binding Command}"  Style="{StaticResource SidebarButtonStyle}">
+                    <bim:Button  Margin="4"  Command="{Binding Command}"  Style="{StaticResource SidebarButtonStyle}">
                         <StackPanel >
                             <bim:SymbolIcon FontSize="20"   Symbol="{Binding Symbol}"  />
                             <Label Content="{Binding Title}"
@@ -102,7 +67,7 @@
                                    Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}" 
                                    Padding="0" />
                         </StackPanel>
-                    </Button>
+                    </bim:Button>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>

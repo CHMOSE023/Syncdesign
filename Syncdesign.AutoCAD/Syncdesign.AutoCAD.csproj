@@ -151,6 +151,7 @@
     <Compile Include="ExtensionApplication.cs" />
     <Compile Include="Logging\LogBootstrap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\HeaderViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="ViewModel\SidebarItem.cs" />
     <Compile Include="ViewModel\SidebarViewModel.cs" />
