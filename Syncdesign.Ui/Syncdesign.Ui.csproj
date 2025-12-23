@@ -1,8 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <PackageId>Syncdesign.Ui</PackageId>
-    <TargetFrameworks>net8.0-windows;net472</TargetFrameworks>
-    <Platforms>x64</Platforms>
+    <TargetFrameworks>net8.0-windows;net472</TargetFrameworks> 
     <LangVersion>preview</LangVersion>
     <UseWPF>true</UseWPF>
     <LangVersion>preview</LangVersion>

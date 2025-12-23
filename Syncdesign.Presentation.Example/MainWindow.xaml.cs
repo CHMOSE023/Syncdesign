@@ -1,13 +1,5 @@
-﻿using System.Text;
+﻿using Syncdesign.Presentation.View;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Syncdesign.Presentation.Example
 {
@@ -18,8 +10,9 @@ namespace Syncdesign.Presentation.Example
     {
         public MainWindow()
         {
-           
             InitializeComponent();
+            var mainView = App.Bootstrapper.Container.Resolve<MainView>();
+            Content = mainView;
         }
     }
 }
