@@ -1,11 +1,10 @@
-﻿<UserControl x:Class="Syncdesign.AutoCAD.View.Header"
+﻿<UserControl x:Class="Syncdesign.Presentation.View.Header" 
              xmlns:bim="http://bimhub.top/syncdesign/2026/xaml" 
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Syncdesign.AutoCAD.View"                  
-             xmlns:vm="clr-namespace:Syncdesign.AutoCAD.ViewModel"                  
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"              
+             xmlns:vm="clr-namespace:Syncdesign.Presentation.ViewModel"                  
              mc:Ignorable="d" 
              Background="LightGray"
              d:DesignHeight="120" d:DesignWidth="500">
@@ -56,16 +55,16 @@
                 <!-- 快捷命令按钮 -->
                 <StackPanel Grid.Row="2" Margin="0 3 0 0" Orientation="Horizontal" VerticalAlignment="Center" >
                     <bim:Button  Margin="2"  Width="24" Height="24" Background="LightGray" Style="{StaticResource SyncdesignUiButton}">
-                        <bim:SymbolIcon FontSize="20"  Foreground="Gray"  Symbol="Archive24"  />
+                        <bim:SymbolIcon FontSize="20"   Symbol="Archive24"  />
                     </bim:Button>
                     <bim:Button Margin="2" Width="24" Height="24" Background="LightGray" Style="{StaticResource SyncdesignUiButton}">
-                        <bim:SymbolIcon FontSize="20" Foreground="Gray"  Symbol="AppsAddIn24"  />
+                        <bim:SymbolIcon FontSize="20"   Symbol="AppsAddIn24"  />
                     </bim:Button>
                     <bim:Button Margin="2" Width="24" Height="24" Background="LightGray" Style="{StaticResource SyncdesignUiButton}">
-                        <bim:SymbolIcon FontSize="20" Foreground="Gray"  Symbol="CloudArrowUp24"  />
+                        <bim:SymbolIcon FontSize="20"  Symbol="CloudArrowUp24"  />
                     </bim:Button>
                     <bim:Button Margin="2" Width="24" Height="24" Background="LightGray" Style="{StaticResource SyncdesignUiButton}">
-                        <bim:SymbolIcon FontSize="20" Foreground="Gray"  Symbol="CloudArrowDown24"  />
+                        <bim:SymbolIcon FontSize="20" Symbol="CloudArrowDown24"  />
                     </bim:Button>
                 </StackPanel>
             </Grid>
@@ -75,44 +74,17 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="26" />
-            </Grid.ColumnDefinitions>
-            <Border Margin="0 0 8 0" 
-                    CornerRadius="6" 
-                    Background="White"  
-                    BorderBrush="#CCC"  
-                    BorderThickness="0" 
-                    >
-                <Grid Margin="4" Grid.Column="0">
-                    <TextBox x:Name="SearchBox"
-                               Height="16"  
-                               Margin="2 0 0 0"
-                               BorderThickness="0"
-                               FontSize="12"                           
-                               TextChanged="SearchBox_TextChanged"/>
-                    <StackPanel  Margin="2,0,0,0" x:Name="SearchPlaceholder" Orientation="Horizontal">
-                        <bim:SymbolIcon FontSize="16"   Symbol="Search12" Foreground="Gray"  />
-                        <TextBlock  Margin="2,0,0,0" Text="搜索…"
-                                     Foreground="Gray"
-                                    
-                                     VerticalAlignment="Center"
-                                     IsHitTestVisible="False"/>
-                    </StackPanel>
-                    <Popup x:Name="SuggestPopup"                            
-                             PlacementTarget="{Binding ElementName=SearchBox}"
-                             Placement="Bottom"                             
-                             StaysOpen="False">
-                        <ListBox MinWidth="{Binding ActualWidth, ElementName=SearchBox}">
-                            <ListBoxItem Content="打开项目"/>
-                            <ListBoxItem Content="同步模型"/>
-                            <ListBoxItem Content="导出 DWG"/>
-                            <ListBoxItem Content="插件设置"/>
-                        </ListBox>
-                    </Popup>
-                </Grid>
-            </Border>
-            <bim:Button Grid.Column="1" Margin="0" Width="26" Height="26" Style="{StaticResource SyncdesignUiButton}">
-                <bim:SymbolIcon FontSize="20" Margin="0.6 0.6 0 0" Symbol="Add12" Foreground="Gray"  />
-            </bim:Button> 
+            </Grid.ColumnDefinitions> 
+            <bim:SearchBox Margin="0 0 6 0"                            
+                           Text="{Binding Search,   UpdateSourceTrigger=PropertyChanged}"
+                           ItemsSource="{Binding Suggestions}"
+                           SearchCommand="{Binding SearchCommand}"
+                           SelectedCommand="{Binding SelectedCommand}"
+                           Delay="50"
+                           />
+            <bim:Button Grid.Column="1"  Width="26" Height="26" Style="{StaticResource SyncdesignUiButton}">
+                <bim:SymbolIcon FontSize="20"  Symbol="Add12"  />
+            </bim:Button>
         </Grid>
     </Grid>
 </UserControl>

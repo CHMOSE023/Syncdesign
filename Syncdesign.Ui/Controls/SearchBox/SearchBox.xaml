@@ -1,0 +1,114 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Syncdesign.Ui.Controls">
+
+    <Style TargetType="{x:Type local:SearchBox}">
+        <Setter Property="Height" Value="28"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="BorderBrush" Value="#CCC"/>
+        <Setter Property="BorderThickness" Value="1"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:SearchBox}">
+                    <!-- 关键点 1：ClipToBounds 让圆角真正生效 -->
+                    <Border
+                        CornerRadius="6"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        ClipToBounds="True">
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- 搜索图标（垂直居中） -->
+                            <local:SymbolIcon
+                                Grid.Column="0"
+                                Margin="5 0 0 0"
+                                FontSize="16"
+                                Symbol="Search12"
+                                Foreground="Gray"
+                                VerticalAlignment="Center"/>
+
+                            <!-- 输入区域（整体垂直居中） -->
+                            <Grid  
+                                  Grid.Column="1"
+                                  Margin="4,0,4,0"
+                                  VerticalAlignment="Center">
+
+                                <!-- 输入框 -->
+                                <TextBox
+                                    x:Name="PART_TextBox"
+                                    Height="20"
+                                    VerticalAlignment="Center"
+                                    Padding="2,2,2,1"
+                                    BorderThickness="0"
+                                    Background="Transparent"
+                                    FontSize="12" 
+                                 Text="{Binding Text,
+                                                RelativeSource={RelativeSource TemplatedParent},
+                                                Mode=TwoWay,
+                                                UpdateSourceTrigger=PropertyChanged}" />
+
+                                <!-- 占位符 -->
+                                <TextBlock
+                                    Text="{TemplateBinding Placeholder}"
+                                    Foreground="Gray"
+                                    VerticalAlignment="Center"
+                                    IsHitTestVisible="False">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <MultiDataTrigger>
+                                                    <MultiDataTrigger.Conditions>
+                                                        <Condition Binding="{Binding Text, ElementName=PART_TextBox}" Value=""/>
+                                                        <Condition Binding="{Binding IsKeyboardFocused, ElementName=PART_TextBox}" Value="False"/>
+                                                    </MultiDataTrigger.Conditions>
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </MultiDataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                                <!-- Popup 宽度占满 -->
+                                <Popup
+                                        IsOpen="{TemplateBinding IsPopupOpen}"
+                                        Placement="Bottom"
+                                        PlacementTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
+                                        StaysOpen="False"
+                                        HorizontalOffset="0"
+                                        VerticalOffset="1"
+                                        AllowsTransparency="True">
+                                    <Border
+                                            Background="White"
+                                            BorderBrush="#DDD"
+                                            BorderThickness="1"
+                                            CornerRadius="6"  
+                                            Padding="5"
+                                           
+                                            Width="{Binding ActualWidth, RelativeSource={RelativeSource TemplatedParent}}">
+
+                                        <ListBox x:Name="PART_ListBox" 
+                                                   BorderThickness="0"
+                                                   ItemsSource="{TemplateBinding ItemsSource}"
+                                                   ItemTemplate="{TemplateBinding ItemTemplate}"
+                                                   DisplayMemberPath="Name"                                                 
+                                                 />
+                                    </Border>
+                                </Popup>
+                            </Grid>
+
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

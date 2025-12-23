@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net8.0-windows;net472</TargetFrameworks>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Platforms>x64</Platforms>
+    <LangVersion>preview</LangVersion> 
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Syncdesign.Ui\Syncdesign.Ui.csproj" />
+  </ItemGroup>
+
+</Project>

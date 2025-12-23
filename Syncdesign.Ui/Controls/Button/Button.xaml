@@ -8,11 +8,11 @@
         <Setter Property="Margin" Value="0"/>
         <Setter Property="Background" Value="White"/>
         <Setter Property="Cursor" Value="Hand"/>
-        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Foreground" Value="Gray"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:Button}">
-                    <Border x:Name="Bd"  CornerRadius="6"  BorderThickness="0"    Padding="{TemplateBinding Padding}"  Background="{TemplateBinding Background}">
+                    <Border x:Name="Bd"  CornerRadius="6"  BorderThickness="0"   Background="{TemplateBinding Background}">
                         <ContentPresenter   HorizontalAlignment="Center"      VerticalAlignment="Center" />
                     </Border>
                     <ControlTemplate.Triggers>
@@ -23,7 +23,7 @@
                         <!-- Pressed（仍然是圆角） -->
                         <Trigger Property="IsPressed" Value="True">
                             <Setter TargetName="Bd"  Property="Background"  Value="#F5F5F5"/>
-                            <Setter Property="Foreground" Value="#696969"/>
+                            <Setter Property="Foreground" Value="#A9A9A9"/>
                         </Trigger>
                         <!-- Selected -->
                         <DataTrigger Binding="{Binding IsSelected}" Value="True">

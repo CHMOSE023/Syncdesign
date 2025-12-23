@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Syncdesign.AutoCAD.View
+namespace Syncdesign.Presentation.View
 {
     /// <summary>
-    /// Siderbar.xaml 的交互逻辑
+    /// MainView.xaml 的交互逻辑
     /// </summary>
-    public partial class Siderbar : UserControl
+    public partial class MainView : UserControl
     {
-        public Siderbar()
+        public MainView()
         {
             InitializeComponent();
         }

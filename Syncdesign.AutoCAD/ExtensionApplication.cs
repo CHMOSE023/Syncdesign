@@ -1,12 +1,12 @@
 ﻿using Autodesk.AutoCAD.Runtime;
 using Autodesk.AutoCAD.Windows;
 using Serilog;
-using Syncdesign.AutoCAD.Logging;
-using Syncdesign.AutoCAD.View;
+using Syncdesign.AutoCAD.Logging; 
 using System;
 using System.IO;
 using System.Reflection;
-using System.Windows;
+using System.Windows; 
+using Syncdesign.Presentation.View;
 
 [assembly: ExtensionApplication(typeof(Syncdesign.AutoCAD.ExtensionApplication))]
 namespace Syncdesign.AutoCAD
@@ -22,14 +22,13 @@ namespace Syncdesign.AutoCAD
         public void Initialize()
         {
             LogBootstrap.Init(); // 初始化日志程序 
-
             try
             { 
                 Log.Information("ExtensionApplication-> Initialize -> 插件已加载 ");
 
-                MainControl mainControl = new MainControl();
+                MainView mainView = new MainView(); 
                 PaletteSet.MinimumSize = new System.Drawing.Size(300, 300);
-                PaletteSet.AddVisual("协同设计", mainControl, true);
+                PaletteSet.AddVisual("协同设计", mainView, true);
 
                 PaletteSet.Style = PaletteSetStyles.NameEditable | PaletteSetStyles.ShowCloseButton;
                 PaletteSet.Dock = DockSides.Left;

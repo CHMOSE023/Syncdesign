@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Syncdesign.AutoCAD.View
+namespace Syncdesign.Presentation.View
 {
     /// <summary>
     /// Container.xaml 的交互逻辑

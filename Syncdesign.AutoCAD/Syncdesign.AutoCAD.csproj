@@ -151,50 +151,15 @@
     <Compile Include="ExtensionApplication.cs" />
     <Compile Include="Logging\LogBootstrap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModel\HeaderViewModel.cs" />
-    <Compile Include="ViewModel\RelayCommand.cs" />
-    <Compile Include="ViewModel\SidebarItem.cs" />
-    <Compile Include="ViewModel\SidebarViewModel.cs" />
-    <Compile Include="View\Container.xaml.cs">
-      <DependentUpon>Container.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Header.xaml.cs">
-      <DependentUpon>Header.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\MainControl.xaml.cs">
-      <DependentUpon>MainControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Siderbar.xaml.cs">
-      <DependentUpon>Siderbar.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="View\Container.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Header.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\MainControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Siderbar.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Syncdesign.Ui\Syncdesign.Ui.csproj">
-      <Project>{170a7a9f-cad4-4288-9a3b-a567d98f4813}</Project>
-      <Name>Syncdesign.Ui</Name>
+    <ProjectReference Include="..\Syncdesign.Presentation\Syncdesign.Presentation.csproj">
+      <Project>{7fd1affb-a83c-45a2-80b8-6da164c054c3}</Project>
+      <Name>Syncdesign.Presentation</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

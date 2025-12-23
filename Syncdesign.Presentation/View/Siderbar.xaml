@@ -1,23 +1,22 @@
-﻿<UserControl x:Class="Syncdesign.AutoCAD.View.Siderbar"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Syncdesign.AutoCAD.View"
-             xmlns:vm="clr-namespace:Syncdesign.AutoCAD.ViewModel"
+﻿<UserControl x:Class="Syncdesign.Presentation.View.Siderbar"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:vm="clr-namespace:Syncdesign.Presentation.ViewModel"
              xmlns:bim="http://bimhub.top/syncdesign/2026/xaml"
              Height="auto"
-             Width="auto">    
+             Width="auto">
     <!-- 绑定 ViewModel -->
     <UserControl.DataContext>
         <vm:SidebarViewModel/>
     </UserControl.DataContext>
-    
+
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <bim:ControlsDictionary/>
                 <bim:ThemesDictionary/>
-            </ResourceDictionary.MergedDictionaries>           
-        </ResourceDictionary>       
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </UserControl.Resources>
     <Grid >
         <Grid.RowDefinitions>
@@ -57,7 +56,7 @@
         <!-- 底部设置 -->
         <ItemsControl Grid.Row="2"   ItemsSource="{Binding BottomItems}">
             <ItemsControl.ItemTemplate>
-                <DataTemplate>   
+                <DataTemplate>
                     <!--悬浮绑定 Title-->
                     <bim:Button  Margin="4"  Command="{Binding Command}"  Style="{StaticResource SidebarButtonStyle}">
                         <StackPanel >

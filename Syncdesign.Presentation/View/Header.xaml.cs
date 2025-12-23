@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Syncdesign.AutoCAD.View
+namespace Syncdesign.Presentation.View
 {
     /// <summary>
     /// Header.xaml 的交互逻辑
@@ -23,12 +23,6 @@ namespace Syncdesign.AutoCAD.View
         public Header()
         {
             InitializeComponent();
-        }
-
-        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            SearchPlaceholder.Visibility = string.IsNullOrEmpty(SearchBox.Text) ? Visibility.Visible : Visibility.Collapsed;
-            SuggestPopup.IsOpen = !string.IsNullOrWhiteSpace(SearchBox.Text);
         }
     }
 }
