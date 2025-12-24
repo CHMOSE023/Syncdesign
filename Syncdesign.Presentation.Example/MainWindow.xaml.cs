@@ -1,4 +1,5 @@
-﻿using Syncdesign.Presentation.View;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Syncdesign.Presentation.View;
 using System.Windows;
 
 namespace Syncdesign.Presentation.Example
@@ -10,8 +11,8 @@ namespace Syncdesign.Presentation.Example
     {
         public MainWindow()
         {
-            InitializeComponent();
-            var mainView = App.Bootstrapper.Container.Resolve<MainView>();
+            InitializeComponent(); 
+            var mainView = App.ServiceProvider?.GetService<MainView>();
             Content = mainView;
         }
     }

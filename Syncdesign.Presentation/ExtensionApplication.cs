@@ -1,5 +1,6 @@
 ﻿using Autodesk.AutoCAD.Runtime;
 using Autodesk.AutoCAD.Windows;
+using Microsoft.Extensions.DependencyInjection;
 using Syncdesign.Presentation;
 using Syncdesign.Presentation.View;
 using System.IO;
@@ -10,32 +11,25 @@ using System.Windows;
 namespace Syncdesign.Presentation;
 
 public class ExtensionApplication : IExtensionApplication
-{
-    private readonly Bootstrapper Bootstrapper = new();
-    PaletteSet PaletteSet = new("协同设计")
-    {
-        MinimumSize = new System.Drawing.Size(300, 300)
-    };
+{   
+    private ServiceProvider ServiceProvider;
     public ExtensionApplication()
-    {
+    { 
        AppDomain.CurrentDomain.AssemblyResolve += ResolveAssembly;
     }
     public void Initialize()
-    {
-
+    { 
         try
         {
-            Bootstrapper.Run();
+            ServiceProvider = ConfigureServices();
 
-            MainView mainView = Bootstrapper.Container.Resolve<MainView>();
+            var mainView = ServiceProvider.GetService<MainView>();
+            var paletteSet = ServiceProvider.GetService<PaletteSet>();
 
-            PaletteSet.AddVisual("协同设计", mainView, true);
-
-            PaletteSet.Style = PaletteSetStyles.NameEditable | PaletteSetStyles.ShowCloseButton;
-            PaletteSet.Dock = DockSides.Left;
-            PaletteSet.Visible = true;
-            PaletteSet.KeepFocus = true;  // 保持焦点  
-
+            if (mainView != null && paletteSet != null)
+            {
+                paletteSet.AddVisual("协同设计", mainView, true);
+            }
         }
         catch (System.Exception ex)
         {
@@ -49,6 +43,24 @@ public class ExtensionApplication : IExtensionApplication
 
     }
 
+    public static ServiceProvider ConfigureServices()
+    {
+        PaletteSet paletteSet = new("协同设计");
+        paletteSet.MinimumSize = new System.Drawing.Size(300, 300);
+        paletteSet.Style = PaletteSetStyles.NameEditable | PaletteSetStyles.ShowCloseButton;
+        paletteSet.Dock = DockSides.Left;
+        paletteSet.Visible = true;
+        paletteSet.KeepFocus = true;  // 保持焦点  
+
+
+        var services = new ServiceCollection();
+
+        services.AddSingleton(paletteSet);
+        services.AddSingleton<MainView>();
+
+        return services.BuildServiceProvider();
+    }
+
     /// <summary>
     /// 订阅程序集解析失败事件,AutoCAD2020  引用不同版本dll加载失败。
     /// </summary>
@@ -56,7 +68,7 @@ public class ExtensionApplication : IExtensionApplication
     /// <param name="args"></param>
     /// <returns></returns>
     /// https://www.cnblogs.com/bigbosscyb/p/19048531
-    private static Assembly ResolveAssembly(object sender, ResolveEventArgs args)
+    private static Assembly? ResolveAssembly(object sender, ResolveEventArgs args)
     {
         var requestedAssemblyName = new AssemblyName(args.Name).Name;
 

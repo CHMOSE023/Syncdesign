@@ -37,7 +37,10 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <bim:Button  Margin="4" Command="{Binding Command}" Style="{StaticResource SidebarButtonStyle}" >
+                    <bim:Button  Margin="4" 
+                                 Command="{Binding ClickCommand}" 
+                                 CommandParameter="{Binding}"
+                                 Style="{StaticResource SidebarButtonStyle}" >
                         <StackPanel>
                             <bim:SymbolIcon FontSize="20"   Symbol="{Binding Symbol}"/>
                             <Label Content="{Binding Title}" 
@@ -58,7 +61,10 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <!--悬浮绑定 Title-->
-                    <bim:Button  Margin="4"  Command="{Binding Command}"  Style="{StaticResource SidebarButtonStyle}">
+                    <bim:Button  Margin="4" 
+                                 Command="{Binding ClickCommand}"
+                                 CommandParameter="{Binding}"
+                                 Style="{StaticResource SidebarButtonStyle}">
                         <StackPanel >
                             <bim:SymbolIcon FontSize="20"   Symbol="{Binding Symbol}"  />
                             <Label Content="{Binding Title}"

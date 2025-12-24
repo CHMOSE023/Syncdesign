@@ -76,8 +76,8 @@
                 <ColumnDefinition Width="26" />
             </Grid.ColumnDefinitions> 
             <bim:SearchBox Margin="0 0 6 0"                            
-                           Text="{Binding Search,   UpdateSourceTrigger=PropertyChanged}"
-                           ItemsSource="{Binding Suggestions}"
+                           Text="{Binding Keyword, UpdateSourceTrigger=PropertyChanged}"
+                           ItemsSource="{Binding Signatures}"
                            SearchCommand="{Binding SearchCommand}"
                            SelectedCommand="{Binding SelectedCommand}"
                            Delay="50"

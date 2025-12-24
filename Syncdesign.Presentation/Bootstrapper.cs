@@ -4,19 +4,19 @@ using System.Windows;
 
 namespace Syncdesign.Presentation;
 
-public class Bootstrapper : PrismBootstrapper
-{
-    protected override DependencyObject? CreateShell()
-    {
-        return null;
-    }
+//public class Bootstrapper : PrismBootstrapper
+//{
+//    protected override DependencyObject? CreateShell()
+//    {
+//        return null;
+//    }
       
-    protected override void RegisterTypes(IContainerRegistry containerRegistry)
-    {
-        containerRegistry.RegisterSingleton<MainView>();
+//    protected override void RegisterTypes(IContainerRegistry containerRegistry)
+//    {
+//        containerRegistry.RegisterSingleton<MainView>();
 
-        var regionManager = Container.Resolve<IRegionManager>();
+//        var regionManager = Container.Resolve<IRegionManager>();
 
-        regionManager.RegisterViewWithRegion("MainContentRegion", typeof(MainView));
-    }
-}
+//        regionManager.RegisterViewWithRegion("MainContentRegion", typeof(MainView));
+//    }
+//}

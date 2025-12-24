@@ -1,13 +1,20 @@
-﻿using Syncdesign.Ui.Controls;
-using System.Collections.ObjectModel; 
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
+using Syncdesign.Presentation.Model;
+using Syncdesign.Ui.Controls;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace Syncdesign.Presentation.ViewModel;
 
-public class SidebarViewModel
+public partial class SidebarViewModel : ObservableObject
 {
-    public ObservableCollection<SidebarItem> TopItems { get; }
-    public ObservableCollection<SidebarItem> BottomItems { get; }
-     
+    [ObservableProperty]
+    private ObservableCollection<SidebarItem> topItems = [];
+
+    [ObservableProperty]
+    private ObservableCollection<SidebarItem> bottomItems = [];
 
     public SidebarViewModel()
     {
@@ -29,29 +36,37 @@ public class SidebarViewModel
 
     private SidebarItem CreateItem(string title, SymbolFilled symbolFilled)
     {
-        return new SidebarItem
+        var item = new SidebarItem
         {
             Title = title,
-            Symbol = symbolFilled.ToString(),
-            Command = new RelayCommand<string>(Select)
-        };
+            Symbol = symbolFilled.ToString()
+        }; 
+        // 关键：必须手动把父级的 SelectItemCommand 赋值给子项 
+        item.ClickCommand = SelectItemCommand;
+
+        return item;
     }
 
-    private void Select(string title)
+    [RelayCommand]
+    private void SelectItem(SidebarItem? targetItem)  
     {
-        var selected = TopItems.Concat(BottomItems).FirstOrDefault(x => x.Title == title);
-        if (selected.IsSelected)
-            return;
-          
-        foreach (var item in TopItems.Concat(BottomItems))
+        if (targetItem == null) return;
+
+        if (targetItem.IsSelected) return;
+
+        // --- 发送消息 ---
+        WeakReferenceMessenger.Default.Send(new SidebarItemMessage(targetItem));
+        // ----------------
+
+        Debug.WriteLine(targetItem.Title);
+         
+        var allItems = TopItems.Concat(BottomItems);
+        foreach (var item in allItems)
         {
             item.IsSelected = false;
         }
-         
-        if (selected != null)
-        {
-             selected.IsSelected = true;
-        }
-          
+        
+        targetItem.IsSelected = true;
     }
+
 }

@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Syncdesign.Presentation.View" 
+             xmlns:vm="clr-namespace:Syncdesign.Presentation.ViewModel" 
              xmlns:bim="http://bimhub.top/syncdesign/2026/xaml"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="450">
@@ -12,27 +13,34 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <bim:ControlsDictionary/>
-                <bim:ThemesDictionary  />
+                <bim:ThemesDictionary  />                
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
+    
+    <UserControl.DataContext>
+        <vm:MainViewModel/>
+    </UserControl.DataContext>
+    
     <Grid Background="LightGray">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <local:Header Grid.Row="0" >
-        </local:Header>
+        <local:Header Grid.Row="0" />
+
         <Border Grid.Row="1" Margin="3" CornerRadius="6" Background="White">
             <Grid >
                 <Grid.ColumnDefinitions >
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
+                 <!--动态内容-->
                 <Border BorderThickness="0,0,1,0" BorderBrush="LightGray">
                     <local:Siderbar Grid.Column="0" />
                 </Border>
-                <local:Container Grid.Column="1"/>
+                <!--动态内容-->
+                <ContentControl Grid.Column="1" Content="{Binding ContainerView}" />
             </Grid>
         </Border>
     </Grid>

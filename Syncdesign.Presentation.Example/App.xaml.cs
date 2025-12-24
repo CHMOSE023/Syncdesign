@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System.Windows;
 
 namespace Syncdesign.Presentation.Example
 {
@@ -7,13 +8,11 @@ namespace Syncdesign.Presentation.Example
     /// </summary>
     public partial class App : Application
     {
-        public readonly static Bootstrapper Bootstrapper = new();
+        public static ServiceProvider? ServiceProvider;
         protected override void OnStartup(StartupEventArgs e)
         {
-            base.OnStartup(e);
-
-
-            Bootstrapper.Run();
+            ServiceProvider = ExtensionApplication.ConfigureServices();
+            base.OnStartup(e);             
         }
 
     }
