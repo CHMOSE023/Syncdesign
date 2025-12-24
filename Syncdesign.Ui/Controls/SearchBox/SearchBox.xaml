@@ -91,9 +91,16 @@
                                             BorderThickness="1"
                                             CornerRadius="6"  
                                             Padding="5"
-                                           
+                                            Margin="20"
                                             Width="{Binding ActualWidth, RelativeSource={RelativeSource TemplatedParent}}">
-
+                                        <!--添加阴影-->
+                                        <Border.Effect>
+                                            <DropShadowEffect
+                                                Color="Gray"
+                                                BlurRadius="12"
+                                                ShadowDepth="4"
+                                                Opacity="0.3"/>
+                                        </Border.Effect>
                                         <ListBox x:Name="PART_ListBox" 
                                                    BorderThickness="0"
                                                    ItemsSource="{TemplateBinding ItemsSource}"

@@ -10,30 +10,34 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:InlineEditableText}">
-                    <Grid>
-                        <!-- 显示态 -->
-                        <TextBlock x:Name="PART_Display"
+                    <Border  x:Name="Bd"  CornerRadius="6"  BorderThickness="0" Background="Transparent" Padding="3" >
+                        <Grid>
+                            <!-- 显示态 -->
+                            <TextBlock x:Name="PART_Display"
                                    Text="{TemplateBinding Text}"
-                                   Foreground="{TemplateBinding Foreground}"
+                                   Foreground="{TemplateBinding Foreground}"            
+                                   Margin="0"
                                    VerticalAlignment="Center"/>
-                        <!-- Placeholder -->
-                        <TextBlock x:Name="PART_Placeholder"
+                            <!-- Placeholder -->
+                            <TextBlock x:Name="PART_Placeholder"
                                    Text="{TemplateBinding Placeholder}"
                                    Foreground="#999999"
-                                   VerticalAlignment="Center"
+                                   VerticalAlignment="Center" 
                                    IsHitTestVisible="False"
+                                   Margin="0"
                                    Visibility="Collapsed"/>
-                        <!-- 编辑态 -->
-                        <TextBox x:Name="PART_Editor"
+                            <!-- 编辑态 -->
+                            <TextBox x:Name="PART_Editor"
                                  Text="{Binding Text,
                                         RelativeSource={RelativeSource TemplatedParent},
                                         UpdateSourceTrigger=PropertyChanged}"
                                  FontSize="{TemplateBinding FontSize}"
+                                 BorderThickness="0"
+                                 Margin="0"                               
                                  Visibility="Collapsed"/>
-                    </Grid>
-                    
-                    <ControlTemplate.Triggers>
-                        
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>                        
                         <!-- 空文本显示 Placeholder -->
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -47,6 +51,11 @@
 
                         <!-- 编辑态 -->
                         <Trigger Property="IsEditing" Value="True">
+                            
+                            <Setter TargetName="Bd" 
+                                    Property="Background"   
+                                    Value="White"/>
+                            
                             <Setter TargetName="PART_Display"
                                     Property="Visibility"
                                     Value="Collapsed"/>

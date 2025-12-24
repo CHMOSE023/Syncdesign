@@ -111,8 +111,11 @@ public class InlineEditableText : Control
         {
             _editor.LostKeyboardFocus += OnEditorLostFocus;
             _editor.KeyDown += OnEditorKeyDown;
+
         }
     }
+
+
 
     private void OnDisplayClick(object sender, MouseButtonEventArgs e)
     {
@@ -121,7 +124,11 @@ public class InlineEditableText : Control
 
     private void OnEditorLostFocus(object sender, RoutedEventArgs e)
     {
+        if (!IsEditing)
+            return;
+
         CommitEdit();
+        IsEditing = false;
     }
 
     private void OnEditorKeyDown(object sender, KeyEventArgs e)
@@ -129,11 +136,15 @@ public class InlineEditableText : Control
         if (e.Key == Key.Enter)
         {
             CommitEdit();
+            IsEditing = false;
+            Keyboard.ClearFocus();
             e.Handled = true;
         }
         else if (e.Key == Key.Escape)
         {
             CancelEdit();
+            IsEditing = false;
+            Keyboard.ClearFocus();
             e.Handled = true;
         }
     }
