@@ -1,15 +1,23 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using Syncdesign.Presentation.View;
+﻿using CommunityToolkit.Mvvm.ComponentModel; 
 
 namespace Syncdesign.Presentation.ViewModel;
 
 public partial class MainViewModel : ObservableObject
 {
-    [ObservableProperty]
-    private object? _containerView;
-    public MainViewModel()
-    { 
-        _containerView = new Container();
-        
+    public MainViewModel(ContainerViewModel containerVM, SidebarViewModel sidebarVM, HeaderViewModel headerVM)
+    {
+        ContainerVM = containerVM;
+        SidebarVM = sidebarVM;
+        HeaderVM = headerVM;
     }
+
+    [ObservableProperty]
+    private SidebarViewModel? _sidebarVM;
+
+    [ObservableProperty]
+    private ContainerViewModel? _containerVM;
+
+    [ObservableProperty]
+    private HeaderViewModel? _headerVM;
+   
 }

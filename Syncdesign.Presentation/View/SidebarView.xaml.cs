@@ -18,9 +18,9 @@ namespace Syncdesign.Presentation.View
     /// <summary>
     /// Siderbar.xaml 的交互逻辑
     /// </summary>
-    public partial class Siderbar : UserControl
+    public partial class SidebarView : UserControl
     {
-        public Siderbar()
+        public SidebarView()
         {
             InitializeComponent();
         }

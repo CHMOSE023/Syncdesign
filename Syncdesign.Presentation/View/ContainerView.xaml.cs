@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Syncdesign.Presentation.View
 {
     /// <summary>
-    /// Header.xaml 的交互逻辑
+    /// Container.xaml 的交互逻辑
     /// </summary>
-    public partial class Header : UserControl
+    public partial class ContainerView : UserControl
     {
-        public Header()
+        public ContainerView()
         {
             InitializeComponent();
         }

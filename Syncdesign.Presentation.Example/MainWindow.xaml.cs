@@ -12,7 +12,7 @@ namespace Syncdesign.Presentation.Example
         public MainWindow()
         {
             InitializeComponent(); 
-            var mainView = App.ServiceProvider?.GetService<MainView>();
+            var mainView = Bootstrapper.Instance.ServiceProvider?.GetService<MainView>();
             Content = mainView;
         }
     }

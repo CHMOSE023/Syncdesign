@@ -8,10 +8,10 @@ namespace Syncdesign.Presentation.Example
     /// </summary>
     public partial class App : Application
     {
-        public static ServiceProvider? ServiceProvider;
+      
         protected override void OnStartup(StartupEventArgs e)
         {
-            ServiceProvider = ExtensionApplication.ConfigureServices();
+            Bootstrapper.Instance.Init(); 
             base.OnStartup(e);             
         }
 

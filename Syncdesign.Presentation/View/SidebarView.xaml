@@ -1,15 +1,11 @@
-﻿<UserControl x:Class="Syncdesign.Presentation.View.Siderbar"
-                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<UserControl x:Class="Syncdesign.Presentation.View.SidebarView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
              xmlns:vm="clr-namespace:Syncdesign.Presentation.ViewModel"
              xmlns:bim="http://bimhub.top/syncdesign/2026/xaml"
              Height="auto"
              Width="auto">
-    <!-- 绑定 ViewModel -->
-    <UserControl.DataContext>
-        <vm:SidebarViewModel/>
-    </UserControl.DataContext>
-
+     
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

@@ -5,5 +5,5 @@ namespace Syncdesign.Presentation.ViewModel;
 
 public partial class UserListViewModel: ObservableObject
 {
-    
+   
 }

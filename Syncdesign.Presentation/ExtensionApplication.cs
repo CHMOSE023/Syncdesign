@@ -3,6 +3,7 @@ using Autodesk.AutoCAD.Windows;
 using Microsoft.Extensions.DependencyInjection;
 using Syncdesign.Presentation;
 using Syncdesign.Presentation.View;
+using Syncdesign.Presentation.ViewModel;
 using System.IO;
 using System.Reflection;
 using System.Windows;
@@ -12,7 +13,7 @@ namespace Syncdesign.Presentation;
 
 public class ExtensionApplication : IExtensionApplication
 {   
-    private ServiceProvider ServiceProvider;
+   
     public ExtensionApplication()
     { 
        AppDomain.CurrentDomain.AssemblyResolve += ResolveAssembly;
@@ -21,10 +22,10 @@ public class ExtensionApplication : IExtensionApplication
     { 
         try
         {
-            ServiceProvider = ConfigureServices();
+            Bootstrapper.Instance.Init();
 
-            var mainView = ServiceProvider.GetService<MainView>();
-            var paletteSet = ServiceProvider.GetService<PaletteSet>();
+            var mainView = Bootstrapper.Instance.ServiceProvider.GetService<MainView>();
+            var paletteSet = Bootstrapper.Instance.ServiceProvider.GetService<PaletteSet>();
 
             if (mainView != null && paletteSet != null)
             {
@@ -42,25 +43,7 @@ public class ExtensionApplication : IExtensionApplication
     {
 
     }
-
-    public static ServiceProvider ConfigureServices()
-    {
-        PaletteSet paletteSet = new("协同设计");
-        paletteSet.MinimumSize = new System.Drawing.Size(300, 300);
-        paletteSet.Style = PaletteSetStyles.NameEditable | PaletteSetStyles.ShowCloseButton;
-        paletteSet.Dock = DockSides.Left;
-        paletteSet.Visible = true;
-        paletteSet.KeepFocus = true;  // 保持焦点  
-
-
-        var services = new ServiceCollection();
-
-        services.AddSingleton(paletteSet);
-        services.AddSingleton<MainView>();
-
-        return services.BuildServiceProvider();
-    }
-
+     
     /// <summary>
     /// 订阅程序集解析失败事件,AutoCAD2020  引用不同版本dll加载失败。
     /// </summary>

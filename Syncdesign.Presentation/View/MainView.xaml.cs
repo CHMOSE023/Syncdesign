@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Syncdesign.Presentation.ViewModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Syncdesign.Presentation.View
 {
@@ -20,9 +9,18 @@ namespace Syncdesign.Presentation.View
     /// </summary>
     public partial class MainView : UserControl
     {
-        public MainView()
+        public MainView(MainViewModel mainViewModel)
         {
+            // 全局可见只需要加载一次          
             InitializeComponent();
+
+            var dict = new ResourceDictionary
+            {
+                Source = new Uri("pack://application:,,,/Syncdesign.Presentation;component/Resources/ViewTemplates.xaml", UriKind.Absolute)
+            };
+            Resources.MergedDictionaries.Add(dict);
+
+            DataContext = mainViewModel;
         }
     }
 }
