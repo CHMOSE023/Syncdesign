@@ -13,7 +13,12 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Thumb">
-                        <Border Background="Gray"  CornerRadius="4" Width="6" Margin="2"/>
+                        <Border Background="#B2808080"
+                                 CornerRadius="2.5"
+                                 Width="5"
+                                 HorizontalAlignment="Right"
+                                 Margin="0 0 3 0"
+                                 />
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
