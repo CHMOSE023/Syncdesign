@@ -28,7 +28,9 @@
             </Grid.ColumnDefinitions>
             <Border Width="60" Height="60"  Grid.Column="0" >
                 <Image Source="pack://application:,,,/Syncdesign.Ui;component/Resources/Images/avatar.jpg" 
-                       Stretch="UniformToFill">
+                       Stretch="UniformToFill"
+                       RenderOptions.BitmapScalingMode="HighQuality"
+                       >
                     <Image.Clip>
                         <EllipseGeometry Center="30,30" RadiusX="30" RadiusY="30" />
                     </Image.Clip>
@@ -50,17 +52,30 @@
                     />
                 <!-- 快捷命令按钮 -->
                 <StackPanel Grid.Row="2"  Orientation="Horizontal" VerticalAlignment="Center" >
-                    <bim:Button Style="{StaticResource SyncdesignUiNavButton}">                        
+                    <bim:Button 
+                        Style="{StaticResource SyncdesignUiNavButton}" 
+                        Command="{Binding ArchiveCommand}" >
                         <bim:SymbolIcon FontSize="20"   Symbol="Archive24"  />
                     </bim:Button>
-                    <bim:Button Style="{StaticResource SyncdesignUiNavButton}">
+                    <bim:Button
+                        Style="{StaticResource SyncdesignUiNavButton}"
+                        Command="{Binding AppsAddCommand}">                        
                         <bim:SymbolIcon FontSize="20"   Symbol="AppsAddIn24"  />
                     </bim:Button>
-                    <bim:Button Style="{StaticResource SyncdesignUiNavButton}">
+                    <bim:Button 
+                        Style="{StaticResource SyncdesignUiNavButton}" 
+                        Command="{Binding CloudUpCommand}" >
                         <bim:SymbolIcon FontSize="20"  Symbol="CloudArrowUp24"  />
                     </bim:Button>
-                    <bim:Button Style="{StaticResource SyncdesignUiNavButton}">
+                    <bim:Button 
+                        Style="{StaticResource SyncdesignUiNavButton}" 
+                        Command="{Binding CloudDownCommand}" >
                         <bim:SymbolIcon FontSize="20" Symbol="CloudArrowDown24"  />
+                    </bim:Button>
+                    <bim:Button 
+                        Style="{StaticResource SyncdesignUiNavButton}"   
+                        Command="{Binding CloudSaveCommand}" >
+                        <bim:SymbolIcon FontSize="20"   Symbol="SaveSync20"  />
                     </bim:Button>
                 </StackPanel>
             </Grid>
@@ -73,12 +88,18 @@
             </Grid.ColumnDefinitions> 
             <bim:SearchBox Margin="0 0 6 0"                            
                            Text="{Binding Keyword, UpdateSourceTrigger=PropertyChanged}"
-                           ItemsSource="{Binding Signatures}"
+                           ItemsSource="{Binding SearchItems}"
                            SearchCommand="{Binding SearchCommand}"
                            SelectedCommand="{Binding SelectedCommand}"
                            Delay="50"
                            />
-            <bim:Button Grid.Column="1"  Width="26" Height="26" Style="{StaticResource SyncdesignUiButton}">
+            <bim:Button
+                Style="{StaticResource SyncdesignUiButton}"
+                Grid.Column="1"  
+                Width="26" 
+                Height="26" 
+                Command="{Binding AddCommand}"
+                >
                 <bim:SymbolIcon FontSize="20"  Symbol="Add12"  />
             </bim:Button>
         </Grid>

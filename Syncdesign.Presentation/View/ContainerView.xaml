@@ -10,7 +10,6 @@
     <StackPanel>
         <Label Content="{Binding Search}"></Label>
         <Label Content="{Binding Siderbar}"></Label>
-        <ContentControl  Content="{Binding UserListVM}" />
-        <ContentControl  Content="{Binding SidebarVM}" /> 
+        <ContentControl  Content="{Binding UserListVM}" /> 
     </StackPanel>
 </UserControl>
