@@ -1,5 +1,4 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
 using Syncdesign.Presentation.Model;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -15,8 +14,7 @@ namespace Syncdesign.Presentation.ViewModel
                 Avatar="",
                 LastTime=DateTime.Now,
                 Name="项目群1",
-                LastMessage="最后一条消息1",
-                UnreadCount =5,
+                LastMessage="最后一条消息1" 
             });
             Messages?.Add(new()
             {
@@ -24,7 +22,7 @@ namespace Syncdesign.Presentation.ViewModel
                 LastTime = DateTime.Now,
                 Name = "项目群2",
                 LastMessage = "最后一条消息2",
-                UnreadCount = 5,
+                UnreadCount = 2,
             });
             Messages?.Add(new()
             {
@@ -32,7 +30,7 @@ namespace Syncdesign.Presentation.ViewModel
                 LastTime = DateTime.Now,
                 Name = "马工",
                 LastMessage = "最后一条消息3",
-                UnreadCount = 5,
+                UnreadCount = 3,
             });
             Messages?.Add(new()
             {
@@ -48,7 +46,7 @@ namespace Syncdesign.Presentation.ViewModel
                 LastTime = DateTime.Now,
                 Name = "刘工",
                 LastMessage = "最后一条消息5",
-                UnreadCount = 5,
+                UnreadCount = 0,
             });
             Messages?.Add(new()
             {
@@ -56,7 +54,7 @@ namespace Syncdesign.Presentation.ViewModel
                 LastTime = DateTime.Now,
                 Name = "项目群4",
                 LastMessage = "最后一条消息7",
-                UnreadCount = 5,
+                UnreadCount =10,
             });
         }
          
