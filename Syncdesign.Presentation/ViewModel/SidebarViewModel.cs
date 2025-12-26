@@ -20,24 +20,25 @@ public partial class SidebarViewModel : ObservableObject
     {
         TopItems = new ObservableCollection<SidebarItem>
         {
-            CreateItem("消息",SymbolFilled.Chat32),
-            CreateItem("联系人",SymbolFilled.Person48),
-            CreateItem("项目",SymbolFilled.Briefcase48),
-            CreateItem("任务",SymbolFilled.Checkmark48),
-            CreateItem("审查",SymbolFilled.Eye48),
-            CreateItem("流程",SymbolFilled.Document48),
+            CreateItem(NavType.Messages,"消息",SymbolFilled.Chat32),
+            CreateItem(NavType.Contacts,"联系人",SymbolFilled.Person48),
+            CreateItem(NavType.Projects,"项目",SymbolFilled.Briefcase48),
+            CreateItem(NavType.Tasks, "任务",SymbolFilled.Checkmark48),
+            CreateItem(NavType.Workflow, "审查",SymbolFilled.Eye48),
+            CreateItem(NavType.Workflow, "流程",SymbolFilled.Document48),
         };
 
         BottomItems = new ObservableCollection<SidebarItem>
         {
-            CreateItem("设置",SymbolFilled.Settings48)
+            CreateItem(NavType.Settings,"设置",SymbolFilled.Settings48)
         };
     }
 
-    private SidebarItem CreateItem(string title, SymbolFilled symbolFilled)
+    private SidebarItem CreateItem(NavType navType, string title, SymbolFilled symbolFilled)
     {
         var item = new SidebarItem
         {
+            NavType = navType,
             Title = title,
             Symbol = symbolFilled.ToString()
         }; 

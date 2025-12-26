@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Messaging;
 using Syncdesign.Presentation.Model;
+using System.Diagnostics;
 
 namespace Syncdesign.Presentation.ViewModel;
 
@@ -35,7 +36,9 @@ public partial class ContainerViewModel : ObservableObject
 
     public void HandleSidebar(SidebarItem selectedItem)
     {
-        Siderbar = selectedItem.Title; 
+        // 导航到不同组件
+        // ContentControl + DataTemplateSelector 来根据不同消息类型动态显示不同的 View。
+
     }
 
     public void HandleSearch(SearchItem searchItem)

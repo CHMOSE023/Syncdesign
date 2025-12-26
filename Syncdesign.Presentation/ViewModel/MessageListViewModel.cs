@@ -52,6 +52,14 @@ namespace Syncdesign.Presentation.ViewModel
             {
                 Avatar = "",
                 LastTime = DateTime.Now,
+                Name = "关工",
+                LastMessage = "邀请关工，开始星球计划。",
+                UnreadCount = 8,
+            });
+            Messages?.Add(new()
+            {
+                Avatar = "",
+                LastTime = DateTime.Now,
                 Name = "项目群4",
                 LastMessage = "最后一条消息7",
                 UnreadCount =10,
