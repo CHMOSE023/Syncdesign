@@ -7,9 +7,7 @@
              xmlns:vm="clr-namespace:Syncdesign.Presentation.ViewModel"   
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"> 
-    <StackPanel>
-        <Label Content="{Binding Search}"></Label>
-        <Label Content="{Binding Siderbar}"></Label>
-        <ContentControl  Content="{Binding UserListVM}" /> 
-    </StackPanel>
+    <Grid>        
+        <ContentControl  Content="{Binding MessageListVM}" /> 
+    </Grid>
 </UserControl>

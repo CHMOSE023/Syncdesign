@@ -51,6 +51,7 @@ public sealed class Bootstrapper
         services.AddSingleton<SidebarViewModel>();
         services.AddSingleton<HeaderViewModel>();
         services.AddSingleton<UserListViewModel>();
+        services.AddSingleton<MessageListViewModel>();
 
         return services.BuildServiceProvider();
     }

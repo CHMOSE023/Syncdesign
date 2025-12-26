@@ -6,15 +6,16 @@ namespace Syncdesign.Presentation.ViewModel;
 
 public partial class ContainerViewModel : ObservableObject
 { 
-    public ContainerViewModel(UserListViewModel userListVM,SidebarViewModel sidebarViewModel)
+    public ContainerViewModel(UserListViewModel userListViewModel, SidebarViewModel sidebarViewModel,MessageListViewModel messageListViewModel)
     {
         var messenger = WeakReferenceMessenger.Default;
         // 像注册路由一样注册逻辑，不需要实现 IRecipient 接口
         messenger.Register<SidebarItemMessage>(this, (r, m) => HandleSidebar(m.Value));
         messenger.Register<SearchItemMessage>(this, (r, m) => HandleSearch(m.Value));
          
-        UserListVM = userListVM;
+        UserListVM = userListViewModel;
         SidebarVM= sidebarViewModel;
+        MessageListVM = messageListViewModel;
     }
 
     [ObservableProperty]
@@ -22,6 +23,9 @@ public partial class ContainerViewModel : ObservableObject
 
     [ObservableProperty]
     private SidebarViewModel? _sidebarVM;
+
+    [ObservableProperty]
+    private MessageListViewModel? _messageListVM;
 
     [ObservableProperty]
     private string? siderbar;
