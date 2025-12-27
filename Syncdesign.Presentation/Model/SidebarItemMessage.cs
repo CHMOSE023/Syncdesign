@@ -1,5 +1,4 @@
 ﻿using CommunityToolkit.Mvvm.Messaging.Messages;
-using Syncdesign.Presentation.ViewModel;
 
 namespace Syncdesign.Presentation.Model;
 

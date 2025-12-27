@@ -3,27 +3,107 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:view="clr-namespace:Syncdesign.Presentation.View" 
     xmlns:vm="clr-namespace:Syncdesign.Presentation.ViewModel"
-    
+    xmlns:local="clr-namespace:Syncdesign.Presentation.Resources"
     >
-
+    
     <!--使用数据填充模板-->
-    <DataTemplate DataType="{x:Type vm:ContainerViewModel}">
+    
+    <!--Contacts-->    
+    <DataTemplate  DataType="{x:Type vm:ContactsViewModel}">
+        <view:ContactsView />
+    </DataTemplate>
+    <DataTemplate x:Key="ContactsTemplate" DataType="{x:Type vm:ContactsViewModel}">
+        <view:ContactsView />
+    </DataTemplate>
+
+    <!--Container-->    
+    <DataTemplate  DataType="{x:Type vm:ContainerViewModel}">
+        <view:ContainerView />
+    </DataTemplate>    
+    <DataTemplate  x:Key="ContainerTemplate"  
+                   DataType="{x:Type vm:ContainerViewModel}">
         <view:ContainerView />
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:SidebarViewModel}">
-        <view:SidebarView />
-    </DataTemplate>
-
+    <!--Header-->    
     <DataTemplate DataType="{x:Type vm:HeaderViewModel}">
         <view:HeaderView />
     </DataTemplate>
-
-    <DataTemplate DataType="{x:Type vm:UserListViewModel}">
-        <view:UserListView />
+    <DataTemplate x:Key="HeaderTemplate" 
+                  DataType="{x:Type vm:HeaderViewModel}">
+        <view:HeaderView />
     </DataTemplate>
+
+    <!--MessageList-->
     <DataTemplate DataType="{x:Type vm:MessageListViewModel}">
         <view:MessageListView />
+    </DataTemplate>
+    <DataTemplate x:Key="MessageListTemplate" 
+               DataType="{x:Type vm:MessageListViewModel}">
+        <view:MessageListView />
+    </DataTemplate>
+
+    <!--Projects-->
+    <DataTemplate  DataType="{x:Type vm:ProjectsViewModel}">
+        <view:ProjectsView />
+    </DataTemplate>
+    <DataTemplate  x:Key="ProjectsTemplate"  
+                DataType="{x:Type vm:ProjectsViewModel}">
+        <view:ProjectsView />
+    </DataTemplate>
+    
+    <!--Reviews-->
+    <DataTemplate  DataType="{x:Type vm:ReviewsViewModel}">
+        <view:ReviewsView />
+    </DataTemplate>
+    <DataTemplate  x:Key="ReviewsTemplate"  
+                DataType="{x:Type vm:ReviewsViewModel}">
+        <view:ReviewsView />
+    </DataTemplate>
+    
+    <!--Settings-->
+    <DataTemplate  DataType="{x:Type vm:SettingsViewModel}">
+        <view:SettingsView />
+    </DataTemplate>
+    <DataTemplate  x:Key="SettingsTemplate"  
+                   DataType="{x:Type vm:SettingsViewModel}">
+        <view:SettingsView />
+    </DataTemplate>
+
+    <!--Sidebar-->    
+    <DataTemplate  DataType="{x:Type vm:SidebarViewModel}">
+        <view:SidebarView />
+    </DataTemplate>    
+    <DataTemplate  x:Key="SidebarTemplate"  
+                   DataType="{x:Type vm:SidebarViewModel}">
+        <view:SidebarView />
+    </DataTemplate>
+
+    <!--Tasks-->
+    <DataTemplate  DataType="{x:Type vm:TasksViewModel}">
+        <view:TasksView />
+    </DataTemplate>
+    <DataTemplate  x:Key="TasksTemplate"  
+                   DataType="{x:Type vm:TasksViewModel}">
+        <view:TasksView />
+    </DataTemplate>
+
+    <!--UserList-->    
+    <DataTemplate  DataType="{x:Type vm:UserListViewModel}">
+        <view:UserListView />
+    </DataTemplate>    
+    <DataTemplate  x:Key="UserListTemplate"  
+                   DataType="{x:Type vm:UserListViewModel}">
+        <view:UserListView />
+    </DataTemplate>
+
+    <!--Workflow-->
+    <DataTemplate  DataType="{x:Type vm:WorkflowViewModel}">
+        <view:WorkflowView />
+    </DataTemplate>
+    <DataTemplate  x:Key="WorkflowTemplate"  
+                   DataType="{x:Type vm:WorkflowViewModel}">
+        <view:WorkflowView />
     </DataTemplate>
 
 </ResourceDictionary>

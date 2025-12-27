@@ -46,12 +46,18 @@ public sealed class Bootstrapper
         services.AddSingleton<MainView>();
 
         // 注册 ViewModels
-        services.AddSingleton<MainViewModel>();
+        services.AddSingleton<ContactsViewModel>();
         services.AddSingleton<ContainerViewModel>();
-        services.AddSingleton<SidebarViewModel>();
         services.AddSingleton<HeaderViewModel>();
-        services.AddSingleton<UserListViewModel>();
+        services.AddSingleton<MainViewModel>();
         services.AddSingleton<MessageListViewModel>();
+        services.AddSingleton<ProjectsViewModel>();
+        services.AddSingleton<ReviewsViewModel>();
+        services.AddSingleton<SettingsViewModel>();
+        services.AddSingleton<SidebarViewModel>();
+        services.AddSingleton<TasksViewModel>();
+        services.AddSingleton<UserListViewModel>();
+        services.AddSingleton<WorkflowViewModel>();
 
         return services.BuildServiceProvider();
     }
