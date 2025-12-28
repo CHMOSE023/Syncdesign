@@ -4,9 +4,85 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Syncdesign.Presentation.View"
+             xmlns:bim="http://bimhub.top/syncdesign/2026/xaml"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Label>联系人</Label>
-    </Grid>
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <bim:ControlsDictionary/>
+                <bim:ThemesDictionary/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <StackPanel>
+        <Border BorderBrush="LightGray" BorderThickness=" 0 0 0 1">
+            <StackPanel>
+                <bim:Button Style="{StaticResource SyncdesignUiButton}"                  
+                            Margin="10 6 10 6"  
+                            Height="32"
+                            Background="#F5f5f5" 
+                            HoverBackground="#F2f2f2"
+                            BorderThickness="1"
+                            CornerRadius="12"
+                            BorderBrush="LightGray">
+
+                    <StackPanel   Orientation="Horizontal"   HorizontalAlignment="Center" >
+                        <bim:SymbolIcon FontSize="18"  Symbol="PersonSettings20"/>
+                        <Label Content="好友管理器" Foreground="{Binding Foreground,  RelativeSource={RelativeSource AncestorType=bim:Button}}"/>
+                    </StackPanel>
+                </bim:Button>
+                <bim:Button  Style="{StaticResource SyncdesignUiButton}"
+                             Height="32"
+                             Background="Transparent" 
+                             HoverBackground="#F2f2f2"
+                             CornerRadius="0"
+                             BorderThickness="0"
+                             BorderBrush="LightGray">
+                    <Grid  Margin="10 0 10 0" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label  Content="好友通知"   
+                                VerticalAlignment="Center"   
+                                Foreground="{Binding Foreground,   RelativeSource={RelativeSource AncestorType=bim:Button}}"/>
+
+                        <bim:SymbolIcon Grid.Column="1"
+                                        FontSize="18"
+                                        Symbol="ChevronRight20"
+                                        VerticalAlignment="Center"/>
+                    </Grid>
+                </bim:Button>
+                <bim:Button  Style="{StaticResource SyncdesignUiButton}"                   
+                             Height="32"
+                             CornerRadius="0"
+                             Background="Transparent" 
+                             HoverBackground="#F2f2f2"
+                             BorderThickness="0"
+                             BorderBrush="LightGray">
+
+                    <Grid   Margin="10 0 10 0" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="项目通知"                     
+                               VerticalAlignment="Center"   
+                               Foreground="{Binding Foreground,   RelativeSource={RelativeSource AncestorType=bim:Button}}"/>
+
+                        <bim:SymbolIcon Grid.Column="1"
+                             FontSize="18"
+                             Symbol="ChevronRight20"
+                             VerticalAlignment="Center"/>
+                    </Grid>
+                </bim:Button>
+
+            </StackPanel>
+        </Border>
+        <StackPanel>
+            
+        </StackPanel>
+    </StackPanel>
+   
 </UserControl>

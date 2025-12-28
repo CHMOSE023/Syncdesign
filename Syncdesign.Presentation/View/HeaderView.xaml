@@ -96,11 +96,14 @@
             <bim:Button
                 Style="{StaticResource SyncdesignUiButton}"
                 Grid.Column="1"  
-                Width="26" 
-                Height="26" 
+                Margin=" 0 2 0 0"
+                Width="24" 
+                Height="24" 
+                HoverBackground="#F8F8FF" 
+                BorderThickness="0"
                 Command="{Binding AddCommand}"
                 >
-                <bim:SymbolIcon FontSize="20"  Symbol="Add12"  />
+                <bim:SymbolIcon FontSize="16"  Symbol="Add12"  />
             </bim:Button>
         </Grid>
     </Grid>

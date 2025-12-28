@@ -3,23 +3,30 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Syncdesign.Ui.Controls">
     
-    <Style x:Key="SyncdesignUiButton"  TargetType="{x:Type local:Button}">
-        <Setter Property="Height" Value="42"/>
-        <Setter Property="Width" Value="42"/>
+    <Style x:Key="SyncdesignUiButton"  TargetType="{x:Type local:Button}"> 
         <Setter Property="Margin" Value="0"/>
         <Setter Property="Background" Value="White"/>
         <Setter Property="Cursor" Value="Hand"/>
-        <Setter Property="Foreground" Value="Gray"/>
+        <Setter Property="Foreground" Value="DimGray"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:Button}">
-                    <Border x:Name="Bd"  CornerRadius="6"  BorderThickness="0"   Background="{TemplateBinding Background}">
-                        <ContentPresenter   HorizontalAlignment="Center"      VerticalAlignment="Center" />
+                    <Border x:Name="Bd"  
+                            CornerRadius="{TemplateBinding CornerRadius}" 
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}"  
+                            Background="{TemplateBinding Background}"
+                            >
+                        <ContentPresenter   
+                            TextElement.Foreground="{TemplateBinding Foreground}" 
+                            HorizontalAlignment="Stretch"      
+                            VerticalAlignment="Center" />
                     </Border>
                     <ControlTemplate.Triggers>
-                        <!-- Hover -->
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Bd" Property="Background"   Value="#F8F8FF"/>
+                            <Setter  TargetName="Bd" Property="Background"    Value="{Binding HoverBackground,   RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Setter Property="Foreground" Value="DimGray"/>
                         </Trigger>
                         <!-- Pressed（仍然是圆角） -->
                         <Trigger Property="IsPressed" Value="True">
