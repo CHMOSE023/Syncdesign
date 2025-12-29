@@ -1,7 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using System.ComponentModel;
 using System.Diagnostics;
-using System.Windows.Data;
 
 namespace Syncdesign.Presentation.ViewModel;
 
@@ -10,11 +8,29 @@ public enum ContactTab
     好友,
     项目,
 }
+
 public class UserItem
 {
     public string? UserName { get; set; }
-    public string ?GroupName { get; set; } // "内部组", "外部组", "其他组"
+    public string? GroupName { get; set; } // "内部组", "外部组", "其他组"
 }
+
+public class Contact
+{
+    public string? Name { get; set; }
+    public string? Icon { get; set; } = "pack://application:,,,/Syncdesign.Ui;component/Resources/Images/avatar.jpg";
+    public bool IsExpanded { get; set; }
+}
+
+public  class ContactGroup  
+{
+    public string ?GroupName { get; set; }
+
+    public List<Contact> ?Items { get; set; }
+
+    public bool? IsExpanded { get; set; }
+}
+
 /// <summary>
 /// 联系人
 /// </summary>
@@ -33,7 +49,7 @@ public partial class ContactsViewModel : ObservableObject
     private ContactTab? currentTab;
 
     [ObservableProperty]
-    public ICollectionView? contactView;
+    private IEnumerable<ContactGroup>? contactGroups;
 
     /// <summary>
     /// 选项发生变化时
@@ -44,9 +60,20 @@ public partial class ContactsViewModel : ObservableObject
         LoadData(value);
     }
 
+    [ObservableProperty]
+    private object? currentSelectedObject;
+
+    partial void OnCurrentSelectedObjectChanged(object? value)
+    {
+        if (value is Contact contact)
+        {
+            Debug.WriteLine($"选中了联系人: {contact.Name}");
+        }
+    }
+
     private void LoadData(ContactTab? tab)
     {
-        // 1. 根据当前 Tab 获取原始数据
+        // 1. 模拟获取原始数据（你之前的 UserItem 列表）
         var rawData = tab switch
         {
             ContactTab.好友 => GetFriendData(),
@@ -54,30 +81,32 @@ public partial class ContactsViewModel : ObservableObject
             _ => new List<UserItem>()
         };
 
-        // 2. 创建 CollectionView 包装器
-        var view = CollectionViewSource.GetDefaultView(rawData);
+        // 2. 使用 LINQ 进行分组转换
+        // 将 List<UserItem> 转换为 List<ContactGroup>
+        ContactGroups = rawData
+            .GroupBy(x => x.GroupName)
+            .Select(g => new ContactGroup
+            {
+                GroupName = g.Key ?? "未分组",
+                IsExpanded = true, // 默认展开
+                Items = g.Select(u => new Contact
+                {
+                    Name = u.UserName,
+                    // 如果 UserItem 有 Icon 属性可以这里赋值
+                }).ToList()
+            })
+            .ToList();
+    } 
 
-        // 3. 【核心】配置分组逻辑
-        // 只要 GroupDescriptions 里添加了属性名，UI 里的 GroupItem 就会自动生效
-        view.GroupDescriptions.Clear();
-        view.GroupDescriptions.Add(new PropertyGroupDescription(nameof(UserItem.GroupName)));
-
-        ContactView = view;
-    }
-
-    // 模拟数据源
-    private List<UserItem> GetFriendData() => new()
-    {
-        new UserItem { UserName = "用户A", GroupName = "内部" },
-        new UserItem { UserName = "用户B", GroupName = "内部" },
-        new UserItem { UserName = "用户D", GroupName = "外部" },
-        new UserItem { UserName = "用户H", GroupName = "其他" }
+    private List<UserItem> GetFriendData() => new() {
+            new UserItem { UserName = "张三", GroupName = "内部好友" },
+            new UserItem { UserName = "李四", GroupName = "内部好友" },
+            new UserItem { UserName = "王五", GroupName = "外部联系人" }
     };
 
-    private List<UserItem> GetProjectData() => new()
-    {
-        new UserItem { UserName = "同步设计插件", GroupName = "自研项目" },
-        new UserItem { UserName = "BIM 数据中台", GroupName = "公司项目" }
+    private List<UserItem> GetProjectData() => new(){
+            new UserItem { UserName = "BIM项目A", GroupName = "自研" },
+            new UserItem { UserName = "BIM项目B", GroupName = "自研" }
     };
 }
 

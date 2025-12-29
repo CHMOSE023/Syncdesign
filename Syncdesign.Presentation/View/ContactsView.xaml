@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Syncdesign.Presentation.View"
+             xmlns:vm="clr-namespace:Syncdesign.Presentation.ViewModel"
              xmlns:bim="http://bimhub.top/syncdesign/2026/xaml"
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:beh="clr-namespace:Syncdesign.Presentation.Behavior"
@@ -97,110 +98,97 @@
                                  />
 
         </StackPanel>
-        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" >
-            <ItemsControl ItemsSource="{Binding ContactView}">
-                <ItemsControl.GroupStyle>
-                    <GroupStyle>
-                        <GroupStyle.ContainerStyle>
-                            <Style TargetType="GroupItem">
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="GroupItem">
-                                            <!-- GroupItem.DataContext = CollectionViewGroup -->
-                                            <bim:SectionExpander>
-                                                <!-- Header 绑定分组信息 -->
-                                                <bim:SectionExpander.Header>
-                                                    <Grid Margin=" 0 0 10 0">
-                                                        <Grid.ColumnDefinitions>
-                                                            <ColumnDefinition Width="*"/>
-                                                            <ColumnDefinition Width="auto"/>
-                                                        </Grid.ColumnDefinitions>
-                                                        <!-- 左侧：名称 -->
-                                                        <TextBlock Text="{Binding Name}" 
-                                                                   VerticalAlignment="Center"
-                                                                   Foreground="#333"/>
-
-                                                        <!-- 右侧：数量 -->
-                                                        <TextBlock Grid.Column="1"
-                                                                   Text="{Binding ItemCount, StringFormat='({0})'}"
-                                                                   Margin="3,0,0,0"
-                                                                   VerticalAlignment="Center"
-                                                                   FontSize="11"
-                                                                   Foreground="#999"/>
-                                                    </Grid>
-                                                </bim:SectionExpander.Header>
-                                                
-                                                <!-- 内容：分组内 Items -->
-                                                <ItemsPresenter/>
-
-                                            </bim:SectionExpander>
-
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                            </Style>
-                        </GroupStyle.ContainerStyle>
-                    </GroupStyle>
-                </ItemsControl.GroupStyle>
-
-                <!-- 普通 Item -->
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Border x:Name="Root"                               
-                                Padding="2" 
-                                Background="Transparent">
-
-                            <Grid  Margin="15 2 2 2 ">
-                                <Grid.ColumnDefinitions>    
-                                    <ColumnDefinition Width="40"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-
-                                <!-- 头像 -->
-                                <Border Width="40"
-                                        Height="40"
-                                        CornerRadius="20">
-                                    <Image Source="pack://application:,,,/Syncdesign.Ui;component/Resources/Images/avatar.jpg"
-                                           Stretch="UniformToFill"
-                                           RenderOptions.BitmapScalingMode="HighQuality">
-                                        <Image.Clip>
-                                            <EllipseGeometry Center="20,20"
-                                             RadiusX="20"
-                                             RadiusY="20"/>
-                                        </Image.Clip>
-                                    </Image>
-                                </Border>
-
-                                <!-- 文本 -->
-                                <StackPanel Grid.Column="1"
-                                            Margin="10,0"
-                                            VerticalAlignment="Center">
-                                    <TextBlock Text="{Binding UserName}"
-                                               FontSize="12"
-                                               FontWeight="SemiBold"
-                                               Foreground="#222"/>
-                                    <TextBlock Text="在线"
-                                               FontSize="12"
-                                               Margin="0,5,0,0"
-                                               Foreground="#666"
-                                               MaxWidth="260"/>
+        
+        <TreeView Grid.Row="1"
+                  ItemsSource="{Binding ContactGroups}"
+                  BorderThickness="0"
+                  Background="Transparent">
+            <i:Interaction.Behaviors>
+                <beh:TreeViewSelectedItemBehavior SelectedItem="{Binding CurrentSelectedObject, Mode=TwoWay}"/>
+            </i:Interaction.Behaviors>
+            <TreeView.ItemContainerStyle>
+                <Style TargetType="TreeViewItem">
+                    <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}"/>
+                    <Setter Property="Padding" Value="0"/>
+                    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="TreeViewItem">
+                                <StackPanel>
+                                    <ContentPresenter x:Name="PART_Header" ContentSource="Header" />
+                                    <ItemsPresenter x:Name="ItemsHost"  Visibility="Collapsed"/>
                                 </StackPanel>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsExpanded" Value="True">
+                                        <Setter TargetName="ItemsHost" Property="Visibility" Value="Visible"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TreeView.ItemContainerStyle>
+            
+            <TreeView.Resources>
+                <HierarchicalDataTemplate DataType="{x:Type vm:ContactGroup}" 
+                                          ItemsSource="{Binding Items}">
+                    <bim:SectionExpander IsExpanded="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource AncestorType=TreeViewItem}}">
+                        <bim:SectionExpander.Header>
+                            <Grid Margin="0 0 10 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding GroupName}" VerticalAlignment="Center" Foreground="#333"/>
+                                <TextBlock Grid.Column="1" Text="{Binding Items.Count, StringFormat='({0})'}" 
+                                           Margin="3,0,0,0" VerticalAlignment="Center" FontSize="11" Foreground="#999"/>
                             </Grid>
-                        </Border>
+                        </bim:SectionExpander.Header>
+                    </bim:SectionExpander>
+                </HierarchicalDataTemplate>
 
-                        <!-- Hover 触发器 -->
-                        <DataTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="Root"
-                                        Property="Background"
-                                        Value="#EEE"/>
-                            </Trigger>
-                        </DataTemplate.Triggers>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
+                <DataTemplate DataType="{x:Type vm:Contact}">
+                    <Border x:Name="Root" Background="Transparent">
+                        <Grid Margin="12 6 6 6">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
 
-            </ItemsControl>
-        </ScrollViewer>
+                            <Border Width="40" Height="40" CornerRadius="20">
+                                <Image Source="{Binding Icon}" Stretch="UniformToFill"   RenderOptions.BitmapScalingMode="HighQuality">
+                                    <Image.Clip>
+                                        <EllipseGeometry Center="20,20" RadiusX="20" RadiusY="20"/>
+                                    </Image.Clip>
+                                </Image>
+                            </Border> 
+                            
+                            <StackPanel Grid.Column="1" Margin="10,0" VerticalAlignment="Center">
+                                <TextBlock Text="{Binding Name}" FontSize="12" FontWeight="SemiBold" Foreground="#222"/>
+                                <TextBlock Text="在线" FontSize="12" Margin="0 3 0 0" Foreground="#666"/>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+
+                    <DataTemplate.Triggers>
+                        <!--没有选中时候鼠标进入-->
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="True"/>
+                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=TreeViewItem}}" Value="False"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter TargetName="Root" Property="Background" Value="#F2F2F2"/>
+                        </MultiDataTrigger>
+                        <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=TreeViewItem}}" Value="True">
+                            <Setter TargetName="Root" Property="Background" Value="#DDD"/>
+                        </DataTrigger>
+                  
+                        
+                    </DataTemplate.Triggers>
+                </DataTemplate>
+            </TreeView.Resources>
+        </TreeView>
+      
     </Grid>
 
 </UserControl>

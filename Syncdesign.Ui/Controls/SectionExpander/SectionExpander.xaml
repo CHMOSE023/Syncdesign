@@ -5,24 +5,24 @@
     <!-- SectionExpander 默认样式 -->
     <Style TargetType="{x:Type local:SectionExpander}">
         <!-- 基础属性 -->
-        <Setter Property="IsExpanded" Value="False"/>
+        <Setter Property="IsExpanded" Value="True"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Padding" Value="0"/>
-        <Setter Property="Margin" Value="0,0,0,0"/> 
+        <Setter Property="Margin" Value="3"/>
+        <Setter Property="Padding" Value="3"/> 
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:SectionExpander}">
-                    <Border Background="{TemplateBinding Background}">
-                        <DockPanel>
+                    <Border Background="{TemplateBinding Background}" BorderThickness="0">
+                        <DockPanel >
                             <!-- Header -->
                             <ToggleButton x:Name="HeaderSite"
                                           DockPanel.Dock="Top"
-                                          HorizontalContentAlignment="Stretch"
-                                          IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}"                                          
-                                          BorderThickness="0"    
+                                          HorizontalContentAlignment="Left" 
+                                          VerticalContentAlignment="Center"
+                                          IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}"     
                                           Background="Transparent"
-                                          Padding="10 0 0 0"
+                                          Padding="0"
                                           Focusable="False">
                                 <ToggleButton.Template>
                                     <ControlTemplate TargetType="ToggleButton">
@@ -56,6 +56,7 @@
                                     <ContentPresenter Grid.Column="1"   ContentSource="Header"   VerticalAlignment="Center"/>
                                 </Grid>
                             </ToggleButton>
+                            
                             <!-- 内容 -->
                             <ContentPresenter x:Name="ExpandSite"  Visibility="Collapsed"/>
                         </DockPanel>
