@@ -17,7 +17,7 @@ public partial class ContainerViewModel : ObservableObject
         messenger.Register<SearchItemMessage>(this, (r, m) => HandleSearch(m.Value));
 
         _serviceProvider = serviceProvider;
-        CurrentDynamicVM = _serviceProvider.GetService<MessageListViewModel>();
+        CurrentDynamicVM = _serviceProvider.GetService<ContactsViewModel>();
     }
      
      

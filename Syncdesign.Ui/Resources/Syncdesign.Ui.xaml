@@ -8,6 +8,7 @@
         <ResourceDictionary Source="pack://application:,,,/Syncdesign.Ui;component/Controls/Button/Button.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Syncdesign.Ui;component/Controls/InlineEditableText/InlineEditableText.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Syncdesign.Ui;component/Controls/SearchBox/SearchBox.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Syncdesign.Ui;component/Controls/Messages/Messages.xaml" />        
+        <ResourceDictionary Source="pack://application:,,,/Syncdesign.Ui;component/Controls/Messages/Messages.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Syncdesign.Ui;component/Controls/Segmented/Segmented.xaml" />        
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

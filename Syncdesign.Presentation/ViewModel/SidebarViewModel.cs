@@ -20,8 +20,8 @@ public partial class SidebarViewModel : ObservableObject
     {
         TopItems = new ObservableCollection<SidebarItem>
         {
-            CreateItem(NavType.Messages,"消息",SymbolFilled.Chat32,true),
-            CreateItem(NavType.Contacts,"联系人",SymbolFilled.Person48),
+            CreateItem(NavType.Messages,"消息",SymbolFilled.Chat32),
+            CreateItem(NavType.Contacts,"联系人",SymbolFilled.Person48,true),
             CreateItem(NavType.Projects,"项目",SymbolFilled.Briefcase48),
             CreateItem(NavType.Tasks, "任务",SymbolFilled.Checkmark48),
             CreateItem(NavType.Reviews, "审查",SymbolFilled.Eye48),

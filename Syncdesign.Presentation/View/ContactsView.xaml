@@ -12,7 +12,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <bim:ControlsDictionary/>
                 <bim:ThemesDictionary/>
-            </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary.MergedDictionaries> 
         </ResourceDictionary>
     </UserControl.Resources>
     <StackPanel>
@@ -80,9 +80,22 @@
 
             </StackPanel>
         </Border>
-        <StackPanel>
+        <!--1.占满宽度-->
+        <Grid Margin="9 6 9 6">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <bim:Segmented Grid.Row="0"
+                           ItemsSource="{Binding Tabs}" 
+                           SelectedItem="{Binding CurrentTab,Mode=TwoWay}"                           
+                           />
             
-        </StackPanel>
+            <TextBlock  Grid.Row="1" 
+                        Text="{Binding CurrentTab}"
+                        Margin="0,20,0,0" 
+                        FontSize="16" />
+        </Grid>
     </StackPanel>
    
 </UserControl>
