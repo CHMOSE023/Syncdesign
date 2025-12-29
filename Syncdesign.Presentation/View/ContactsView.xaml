@@ -5,6 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Syncdesign.Presentation.View"
              xmlns:bim="http://bimhub.top/syncdesign/2026/xaml"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:beh="clr-namespace:Syncdesign.Presentation.Behavior"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
@@ -12,90 +14,145 @@
             <ResourceDictionary.MergedDictionaries>
                 <bim:ControlsDictionary/>
                 <bim:ThemesDictionary/>
-            </ResourceDictionary.MergedDictionaries> 
+            </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
-    <StackPanel>
-        <Border BorderBrush="LightGray" BorderThickness=" 0 0 0 1">
-            <StackPanel>
-                <bim:Button Style="{StaticResource SyncdesignUiButton}"                  
-                            Margin="10 6 10 6"  
-                            Height="32"
-                            Background="#F5f5f5" 
-                            HoverBackground="#F2f2f2"
-                            BorderThickness="1"
-                            CornerRadius="12"
-                            BorderBrush="LightGray">
+    <Grid ClipToBounds="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel  Grid.Row="0"  Background="Transparent">
+            <Border BorderBrush="LightGray" BorderThickness=" 0 0 0 1" >
+                <i:Interaction.Behaviors>
+                    <beh:ScrollHeaderHideBehavior ScrollSpeed="30"/>
+                </i:Interaction.Behaviors>
+                <StackPanel  Background="Transparent">
+                    <bim:Button Style="{StaticResource SyncdesignUiButton}"                  
+                                    Margin="10 6 10 6"  
+                                    Height="32"
+                                    Background="#F5f5f5" 
+                                    HoverBackground="#F2f2f2"
+                                    BorderThickness="1"
+                                    CornerRadius="12"
+                                    BorderBrush="LightGray">
 
-                    <StackPanel   Orientation="Horizontal"   HorizontalAlignment="Center" >
-                        <bim:SymbolIcon FontSize="18"  Symbol="PersonSettings20"/>
-                        <Label Content="好友管理器" Foreground="{Binding Foreground,  RelativeSource={RelativeSource AncestorType=bim:Button}}"/>
-                    </StackPanel>
-                </bim:Button>
-                <bim:Button  Style="{StaticResource SyncdesignUiButton}"
-                             Height="32"
-                             Background="Transparent" 
-                             HoverBackground="#F2f2f2"
-                             CornerRadius="0"
-                             BorderThickness="0"
-                             BorderBrush="LightGray">
-                    <Grid  Margin="10 0 10 0" >
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-                        <Label  Content="好友通知"   
-                                VerticalAlignment="Center"   
-                                Foreground="{Binding Foreground,   RelativeSource={RelativeSource AncestorType=bim:Button}}"/>
+                        <StackPanel   Orientation="Horizontal"   HorizontalAlignment="Center" >
+                            <bim:SymbolIcon FontSize="18"  Symbol="PersonSettings20"/>
+                            <Label Content="好友管理器" Foreground="{Binding Foreground,  RelativeSource={RelativeSource AncestorType=bim:Button}}"/>
+                        </StackPanel>
+                    </bim:Button>
+                    <bim:Button  Style="{StaticResource SyncdesignUiButton}"
+                                     Height="32"
+                                     Background="Transparent" 
+                                     HoverBackground="#F2f2f2"
+                                     CornerRadius="0"
+                                     BorderThickness="0"
+                                     BorderBrush="LightGray">
+                        <Grid  Margin="10 0 10 0" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label  Content="好友通知"   
+                                        VerticalAlignment="Center"   
+                                        Foreground="{Binding Foreground,   RelativeSource={RelativeSource AncestorType=bim:Button}}"/>
 
-                        <bim:SymbolIcon Grid.Column="1"
+                            <bim:SymbolIcon Grid.Column="1"
                                         FontSize="18"
                                         Symbol="ChevronRight20"
                                         VerticalAlignment="Center"/>
-                    </Grid>
-                </bim:Button>
-                <bim:Button  Style="{StaticResource SyncdesignUiButton}"                   
-                             Height="32"
-                             CornerRadius="0"
-                             Background="Transparent" 
-                             HoverBackground="#F2f2f2"
-                             BorderThickness="0"
-                             BorderBrush="LightGray">
+                        </Grid>
+                    </bim:Button>
+                    <bim:Button  Style="{StaticResource SyncdesignUiButton}"                   
+                                     Height="32"
+                                     CornerRadius="0"
+                                     Background="Transparent" 
+                                     HoverBackground="#F2f2f2"
+                                     BorderThickness="0"
+                                     BorderBrush="LightGray">
 
-                    <Grid   Margin="10 0 10 0" >
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="项目通知"                     
-                               VerticalAlignment="Center"   
-                               Foreground="{Binding Foreground,   RelativeSource={RelativeSource AncestorType=bim:Button}}"/>
+                        <Grid   Margin="10 0 10 0" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Content="项目通知"                     
+                                       VerticalAlignment="Center"   
+                                       Foreground="{Binding Foreground,   RelativeSource={RelativeSource AncestorType=bim:Button}}"/>
 
-                        <bim:SymbolIcon Grid.Column="1"
-                             FontSize="18"
-                             Symbol="ChevronRight20"
-                             VerticalAlignment="Center"/>
-                    </Grid>
-                </bim:Button>
+                            <bim:SymbolIcon Grid.Column="1"
+                                                FontSize="18"
+                                                Symbol="ChevronRight20"
+                                                VerticalAlignment="Center"/>
+                        </Grid>
+                    </bim:Button>
+                </StackPanel>
+            </Border>
 
-            </StackPanel>
-        </Border>
-        <!--1.占满宽度-->
-        <Grid Margin="9 6 9 6">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
             <bim:Segmented Grid.Row="0"
-                           ItemsSource="{Binding Tabs}" 
-                           SelectedItem="{Binding CurrentTab,Mode=TwoWay}"                           
-                           />
-            
-            <TextBlock  Grid.Row="1" 
-                        Text="{Binding CurrentTab}"
-                        Margin="0,20,0,0" 
-                        FontSize="16" />
-        </Grid>
-    </StackPanel>
-   
+                                 Margin ="9 6 9 6"
+                                 ItemsSource="{Binding Tabs}" 
+                                 SelectedItem="{Binding CurrentTab,Mode=TwoWay}"                           
+                                 />
+
+        </StackPanel>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" x:Name="MainScroller">
+            <StackPanel Background="Transparent">
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+                <Label>ddd</Label>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+
 </UserControl>
