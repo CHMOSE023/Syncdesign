@@ -14,7 +14,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <bim:ControlsDictionary/>
                 <bim:ThemesDictionary/>
-            </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary.MergedDictionaries>             
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid ClipToBounds="True">
@@ -97,61 +97,109 @@
                                  />
 
         </StackPanel>
-        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" x:Name="MainScroller">
-            <StackPanel Background="Transparent">
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-                <Label>ddd</Label>
-            </StackPanel>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" >
+            <ItemsControl ItemsSource="{Binding ContactView}">
+                <ItemsControl.GroupStyle>
+                    <GroupStyle>
+                        <GroupStyle.ContainerStyle>
+                            <Style TargetType="GroupItem">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="GroupItem">
+                                            <!-- GroupItem.DataContext = CollectionViewGroup -->
+                                            <bim:SectionExpander>
+                                                <!-- Header 绑定分组信息 -->
+                                                <bim:SectionExpander.Header>
+                                                    <Grid Margin=" 0 0 10 0">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="auto"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <!-- 左侧：名称 -->
+                                                        <TextBlock Text="{Binding Name}" 
+                                                                   VerticalAlignment="Center"
+                                                                   Foreground="#333"/>
+
+                                                        <!-- 右侧：数量 -->
+                                                        <TextBlock Grid.Column="1"
+                                                                   Text="{Binding ItemCount, StringFormat='({0})'}"
+                                                                   Margin="3,0,0,0"
+                                                                   VerticalAlignment="Center"
+                                                                   FontSize="11"
+                                                                   Foreground="#999"/>
+                                                    </Grid>
+                                                </bim:SectionExpander.Header>
+                                                
+                                                <!-- 内容：分组内 Items -->
+                                                <ItemsPresenter/>
+
+                                            </bim:SectionExpander>
+
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </GroupStyle.ContainerStyle>
+                    </GroupStyle>
+                </ItemsControl.GroupStyle>
+
+                <!-- 普通 Item -->
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border x:Name="Root"                               
+                                Padding="2" 
+                                Background="Transparent">
+
+                            <Grid  Margin="15 2 2 2 ">
+                                <Grid.ColumnDefinitions>    
+                                    <ColumnDefinition Width="40"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <!-- 头像 -->
+                                <Border Width="40"
+                                        Height="40"
+                                        CornerRadius="20">
+                                    <Image Source="pack://application:,,,/Syncdesign.Ui;component/Resources/Images/avatar.jpg"
+                                           Stretch="UniformToFill"
+                                           RenderOptions.BitmapScalingMode="HighQuality">
+                                        <Image.Clip>
+                                            <EllipseGeometry Center="20,20"
+                                             RadiusX="20"
+                                             RadiusY="20"/>
+                                        </Image.Clip>
+                                    </Image>
+                                </Border>
+
+                                <!-- 文本 -->
+                                <StackPanel Grid.Column="1"
+                                            Margin="10,0"
+                                            VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding UserName}"
+                                               FontSize="12"
+                                               FontWeight="SemiBold"
+                                               Foreground="#222"/>
+                                    <TextBlock Text="在线"
+                                               FontSize="12"
+                                               Margin="0,5,0,0"
+                                               Foreground="#666"
+                                               MaxWidth="260"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+
+                        <!-- Hover 触发器 -->
+                        <DataTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Root"
+                                        Property="Background"
+                                        Value="#EEE"/>
+                            </Trigger>
+                        </DataTemplate.Triggers>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+
+            </ItemsControl>
         </ScrollViewer>
     </Grid>
 

@@ -3,7 +3,6 @@ using Autodesk.AutoCAD.Windows;
 using Microsoft.Extensions.DependencyInjection;
 using Syncdesign.Presentation;
 using Syncdesign.Presentation.View;
-using Syncdesign.Presentation.ViewModel;
 using System.IO;
 using System.Reflection;
 using System.Windows;
@@ -13,7 +12,6 @@ namespace Syncdesign.Presentation;
 
 public class ExtensionApplication : IExtensionApplication
 {   
-   
     public ExtensionApplication()
     { 
        AppDomain.CurrentDomain.AssemblyResolve += ResolveAssembly;
