@@ -5,74 +5,98 @@ using System.Windows.Shapes;
 
 namespace Syncdesign.Ui.Converters;
 
-// 递归生成线
+/// <summary>
+/// 生成线TreeViewItem 导线
+/// </summary>
 public class CanvasConverter : IValueConverter
 {
-    public double Indent { get; set; } = 20;  // 横向缩进
-    public double VerticalSpacing { get; set; } = 10; // 节点垂直间距
+    public double Indent { get; set; } = 20; // 必须与 TreeViewItem 的缩进一致
+
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-    { 
-        var element = value as DependencyObject;
-        if (element == null)
-        {
-            return new List<Line>(); // 如果转换失败，返回0
-        }
-        int depth = GetDepth(element); // 先计算深度
-        return GetLines(depth, Indent, VerticalSpacing);
-    }
-
-    // 先计算 TreeViewItem 深度
-    private int GetDepth(DependencyObject item)
     {
-        int depth = 0;
-        var parent = VisualTreeHelper.GetParent(item);
+        var item = value as TreeViewItem;
+        if (item == null) return null;
 
-        while (parent != null)
-        {
-            if (parent is TreeViewItem)
-                depth++;
-
-            if (parent is TreeView)
-                break;
-
-            parent = VisualTreeHelper.GetParent(parent);
-        }
-
-        return depth;
-    }
-
-    private List<Line> GetLines(int depth, double indent, double vertical)
-    {
         var lines = new List<Line>();
-        var gray400=(SolidColorBrush)(new BrushConverter().ConvertFromString("#9ca3af"));
-        for (int i = 0; i < depth ; i++)
+        var grayBrush = new System.Windows.Media.SolidColorBrush(Color.FromRgb(156, 163, 175)); // gray-400
+        grayBrush.Freeze(); // 提高性能
+
+        // 1. 获取完整的祖先链条，判断每一层是否是最后一条
+        var ancestorStatus = GetAncestorStatus(item);
+        int depth = ancestorStatus.Count;
+
+        if (depth == 0) return lines;
+
+        // 2. 绘制左侧所有层级的垂直线
+        for (int i = 0; i < depth; i++)
         {
+            bool isLastAtDepth = ancestorStatus[i];
+            bool isCurrentLevel = (i == depth - 1);
+
+            // 如果不是当前层级，且该层级是其父级的最后一个，则不画垂直延续线
+            if (!isCurrentLevel && isLastAtDepth) continue;
+
+            double xPos = i * Indent + Indent / 2;
+
             lines.Add(new Line
             {
-                X1 = indent / 2 + i * indent,
-                X2 = indent / 2 + i * indent,
-                Y1 = -vertical / 2,
-                Y2 = vertical/2,
-                Stroke = gray400,
-                StrokeThickness = 0.5
-            });
-        } 
-        // 水平线
-        if (depth > 0)
-        {                
-            lines.Add(new Line
-            {
-                X1 = depth * indent - indent / 2,
-                X2 = depth * indent + indent / 2 - 6,
-                Y1 = vertical / 2,
-                Y2 = vertical / 2,
-                Stroke = gray400, 
-                StrokeThickness = 0.5
+                X1 = xPos,
+                X2 = xPos,
+                Y1 = 0,
+                // 如果是当前层级的最后一个节点，垂直线只画一半（L型）
+                Y2 = (isCurrentLevel && isLastAtDepth) ? 11 : 22,
+                Stroke = grayBrush,
+                StrokeThickness = 0.8,
+                SnapsToDevicePixels = true
             });
         }
+
+        // 3. 绘制当前节点的水平线
+        lines.Add(new Line
+        {
+            X1 = (depth - 1) * Indent + Indent / 2,
+            X2 = depth * Indent,
+            Y1 = 10,
+            Y2 = 10,
+            Stroke = grayBrush,
+            StrokeThickness = 0.8,
+            SnapsToDevicePixels = true
+        });
 
         return lines;
-    } 
+    }
+
+    // 返回一个布尔列表，表示从根到当前节点的每一层是否为该层最后一个子项
+    private List<bool> GetAncestorStatus(TreeViewItem item)
+    {
+        var status = new List<bool>();
+        var current = item;
+
+        while (true)
+        {
+            var parent = GetParentTreeViewItem(current);
+            if (parent == null) break;
+
+            var itemsControl = ItemsControl.ItemsControlFromItemContainer(current);
+            if (itemsControl != null)
+            {
+                int index = itemsControl.ItemContainerGenerator.IndexFromContainer(current);
+                status.Insert(0, index == itemsControl.Items.Count - 1);
+            }
+            current = parent;
+        }
+        return status;
+    }
+
+    private TreeViewItem GetParentTreeViewItem(TreeViewItem item)
+    {
+        DependencyObject parent = VisualTreeHelper.GetParent(item);
+        while (parent != null && !(parent is TreeViewItem) && !(parent is TreeView))
+        {
+            parent = VisualTreeHelper.GetParent(parent);
+        }
+        return parent as TreeViewItem;
+    }
     public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
     {
         throw new NotImplementedException();

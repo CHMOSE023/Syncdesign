@@ -8,8 +8,7 @@
         <ResourceDictionary Source="/Syncdesign.Ui;component/Controls/Colors/Colors.xaml"/>
         <ResourceDictionary Source="/Syncdesign.Ui;component/Controls/Icones/Icones.xaml"/>
     </ResourceDictionary.MergedDictionaries> 
-
-
+ 
     <Style x:Key="ExpandCollapseToggleStyle" TargetType="{x:Type ToggleButton}">
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="Width" Value="16"/>
@@ -69,15 +68,14 @@
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
         <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
-        <Setter Property="FocusVisualStyle" Value="{StaticResource TreeViewItemFocusVisual}"/>
+        <Setter Property="FocusVisualStyle" Value="{StaticResource TreeViewItemFocusVisual}"/> 
         <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
         <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TreeViewItem}">
                     <ControlTemplate.Resources>
-                        <convers:IndentConverter x:Key="IndentConverter" IndentSize="16" />
-                        <convers:CanvasConverter x:Key="CanvasConverter" Indent="16" VerticalSpacing="18"/>
+                        <convers:IndentConverter x:Key="IndentConverter" IndentSize="16" /> 
                     </ControlTemplate.Resources>
                     <Grid Background="Transparent">
                         <Grid.RowDefinitions>
@@ -86,60 +84,43 @@
                         </Grid.RowDefinitions>
                         <Grid x:Name="Item">
                             <Border  x:Name="Bd" 
-                                  Background="{TemplateBinding Background}"
-                                  BorderBrush="{TemplateBinding BorderBrush}"
-                                  BorderThickness="{TemplateBinding BorderThickness}"  
-                               >
+                                      Background="{TemplateBinding Background}"
+                                      BorderBrush="{TemplateBinding BorderBrush}"
+                                      BorderThickness="{TemplateBinding BorderThickness}"  
+                                     >
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="{Binding Converter={StaticResource IndentConverter}, RelativeSource={RelativeSource TemplatedParent}}"/>
-                                        <ColumnDefinition MinWidth="16" Width="auto" />
+                                        <ColumnDefinition MinWidth="18" Width="18" />
                                         <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Canvas Background="Transparent">
-                                        <ItemsControl ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CanvasConverter}}">
-                                            <ItemsControl.ItemsPanel>
-                                                <ItemsPanelTemplate>
-                                                    <Canvas/>
-                                                </ItemsPanelTemplate>
-                                            </ItemsControl.ItemsPanel>
-                                            <ItemsControl.ItemTemplate>
-                                                <DataTemplate>
-                                                    <Line X1="{Binding X1}" Y1="{Binding Y1}" X2="{Binding X2}" Y2="{Binding Y2}" 
-                                                       Stroke="{Binding Stroke}"
-                                                       StrokeThickness="{Binding StrokeThickness}"
-                                                       StrokeDashArray="0,2"/>
-                                                </DataTemplate>
-                                            </ItemsControl.ItemTemplate>
-                                        </ItemsControl>
-                                    </Canvas>
+                                    </Grid.ColumnDefinitions>                                    
                                     <ToggleButton 
-                                        Grid.Column="1" 
-                                        x:Name="Expander" 
-                                        ClickMode="Press"                                                 
-                                        IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource Mode=TemplatedParent},Mode=TwoWay}"
-                                        Style="{StaticResource ExpandCollapseToggleStyle}" 
-                                  />
+                                                    Grid.Column="1" 
+                                                    x:Name="Expander" 
+                                                    ClickMode="Press"                                                 
+                                                    IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource Mode=TemplatedParent},Mode=TwoWay}"
+                                                    Style="{StaticResource ExpandCollapseToggleStyle}" 
+                                     />
                                     <Border
-                                    Grid.Column="2" 
-                                    Background="{TemplateBinding Background}"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    Padding="{TemplateBinding Padding}"
-                                    SnapsToDevicePixels="true" 
-                                    ClipToBounds="True" 
+                                            Grid.Column="2" 
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            Padding="{TemplateBinding Padding}"
+                                            SnapsToDevicePixels="true" 
+                                            ClipToBounds="True" 
                                     >
                                         <ContentPresenter x:Name="PART_Header"  
-                                                       ContentSource="Header"    
-                                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
-                                                       SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                           Margin="3"
+                                                           ContentSource="Header"    
+                                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                                           SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                                     </Border>
                                 </Grid>
                             </Border>
                         </Grid>
                         <ItemsPresenter x:Name="ItemsHost" Grid.Row="1"/>
                     </Grid>
-
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsExpanded" Value="false">
                             <Setter Property="Visibility" TargetName="ItemsHost" Value="Collapsed"/>
@@ -148,25 +129,26 @@
                             <Setter Property="Visibility" TargetName="Expander" Value="Hidden"/>
                         </Trigger>
                         <Trigger Property="IsSelected" Value="true">
-                            <Setter Property="Background" TargetName="Bd" Value="{StaticResource Gray300}"/>
-                            <Setter Property="Foreground" Value="White"/>
-                        </Trigger>
+                            <Setter Property="Background" TargetName="Bd" Value="{StaticResource Gray300}"/> 
+                        </Trigger> 
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsSelected" Value="True"/>
                                 <Condition Property="IsSelectionActive" Value="false"/>
                             </MultiTrigger.Conditions>
-                            <Setter Property="Background" TargetName="Bd" Value="{StaticResource Gray300}"/>
-                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="Background" TargetName="Bd" Value="{StaticResource Gray300}"/>  
                         </MultiTrigger>
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
-                        </Trigger> 
-                        
-                        <DataTrigger Binding="{Binding  ElementName=Item ,Path=IsMouseOver}" Value="True">
-                            <Setter Property="Background" TargetName="Bd" Value="{StaticResource Gray300}"/>
-                            <Setter Property="Foreground" Value="White"/>
-                        </DataTrigger>
+                        </Trigger>    
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding ElementName=Item, Path=IsMouseOver}" Value="True"/>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsSelected}" Value="False"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Background" TargetName="Bd" Value="{StaticResource Gray100}"/>
+                            <Setter TargetName="Bd" Property="TextElement.Foreground" Value="Black"/>
+                        </MultiDataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

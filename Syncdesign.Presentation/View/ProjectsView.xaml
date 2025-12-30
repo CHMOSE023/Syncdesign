@@ -58,42 +58,32 @@
                 </StackPanel>
             </ComboBoxItem>
         </ComboBox>
-        <TreeView Grid.Row="1"   >
+        <TreeView Grid.Row="1">          
             <TreeView.Resources>
-                <Style TargetType="TreeViewItem" BasedOn="{StaticResource DefaultTreeViewItemStyle}" />
+                <!-- 应用滚动条样式 -->
+                <Style TargetType="ScrollBar" BasedOn="{StaticResource OverlayScrollBarStyle}"/>
+                <Style TargetType="TreeViewItem" BasedOn="{StaticResource DefaultTreeViewItemStyle}" />                
             </TreeView.Resources>
-            <TreeViewItem Header="01-A">
-                <TreeViewItem Header="01-项目文件">
-                    
+            <TreeViewItem Header="Employee1" IsExpanded="True" >
+                <TreeViewItem Header="Jesper Aaberg"/>
+                <TreeViewItem Header="Employee Number"  IsExpanded="True"   IsSelected="True">
+                    <TreeViewItem Header="12345"/>
+                </TreeViewItem>
+                <TreeViewItem Header="Work Days">
+                    <TreeViewItem Header="Monday"/>
+                    <TreeViewItem Header="Tuesday"/>
+                    <TreeViewItem Header="Thursday"/>
                 </TreeViewItem>
             </TreeViewItem>
-            <TreeViewItem Header="02-A">
-                <TreeViewItem Header="01-项目文件">
-
+            <TreeViewItem Header="Employee2"  IsExpanded="True">
+                <TreeViewItem Header="Dominik Paiha"/>
+                <TreeViewItem Header="Employee Number">
+                    <TreeViewItem Header="98765"/>
                 </TreeViewItem>
-            </TreeViewItem>
-            <TreeViewItem Header="03-A">
-                <TreeViewItem Header="01-项目文件">
-                    <TreeViewItem Header="04-A">
-                        <TreeViewItem Header="01-项目文件">
-
-                        </TreeViewItem>
-                    </TreeViewItem>
-                    <TreeViewItem Header="05-A">
-                        <TreeViewItem Header="01-项目文件">
-
-                        </TreeViewItem>
-                    </TreeViewItem>
-                </TreeViewItem>
-            </TreeViewItem>
-            <TreeViewItem Header="04-A">
-                <TreeViewItem Header="01-项目文件">
-
-                </TreeViewItem>
-            </TreeViewItem>
-            <TreeViewItem Header="05-A">
-                <TreeViewItem Header="01-项目文件">
-
+                <TreeViewItem Header="Work Days">
+                    <TreeViewItem Header="Tuesday"/>
+                    <TreeViewItem Header="Wednesday"/>
+                    <TreeViewItem Header="Friday"/>
                 </TreeViewItem>
             </TreeViewItem>
         </TreeView>
