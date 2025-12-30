@@ -17,6 +17,9 @@
     <None Remove="Resources\Images\avatar.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="System.Runtime" Version="4.3.1" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Resources\Fonts\FluentSystemIcons-Filled.ttf">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

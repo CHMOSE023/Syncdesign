@@ -1,0 +1,298 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="IconColor" Color="#FF2196F3"/>
+    <SolidColorBrush x:Key="PrimaryIconBrush" Color="#2196F3"/>
+    <SolidColorBrush x:Key="SecondaryIconBrush" Color="#E91E63"/>
+
+    <!--https://v3.tailwindcss.com/docs/customizing-colors-->
+    
+    <!-- Slate -->
+    <SolidColorBrush x:Key="Slate50" Color="#f8fafc"/>
+    <SolidColorBrush x:Key="Slate100" Color="#f1f5f9"/>
+    <SolidColorBrush x:Key="Slate200" Color="#e2e8f0"/>
+    <SolidColorBrush x:Key="Slate300" Color="#cbd5e1"/>
+    <SolidColorBrush x:Key="Slate400" Color="#94a3b8"/>
+    <SolidColorBrush x:Key="Slate500" Color="#64748b"/>
+    <SolidColorBrush x:Key="Slate600" Color="#475569"/>
+    <SolidColorBrush x:Key="Slate700" Color="#334155"/>
+    <SolidColorBrush x:Key="Slate800" Color="#1e293b"/>
+    <SolidColorBrush x:Key="Slate900" Color="#0f172a"/>
+    <SolidColorBrush x:Key="Slate950" Color="#020617"/>
+
+    <!-- Gray -->
+    <SolidColorBrush x:Key="Gray50" Color="#f9fafb"/>
+    <SolidColorBrush x:Key="Gray100" Color="#f3f4f6"/>
+    <SolidColorBrush x:Key="Gray200" Color="#e5e7eb"/>
+    <SolidColorBrush x:Key="Gray300" Color="#d1d5db"/>
+    <SolidColorBrush x:Key="Gray400" Color="#9ca3af"/>
+    <SolidColorBrush x:Key="Gray500" Color="#6b7280"/>
+    <SolidColorBrush x:Key="Gray600" Color="#4b5563"/>
+    <SolidColorBrush x:Key="Gray700" Color="#374151"/>
+    <SolidColorBrush x:Key="Gray800" Color="#1f2937"/>
+    <SolidColorBrush x:Key="Gray900" Color="#111827"/>
+    <SolidColorBrush x:Key="Gray950" Color="#030712"/>
+
+    <!-- Zinc -->
+    <SolidColorBrush x:Key="Zinc50" Color="#fafafa"/>
+    <SolidColorBrush x:Key="Zinc100" Color="#f4f4f5"/>
+    <SolidColorBrush x:Key="Zinc200" Color="#e4e4e7"/>
+    <SolidColorBrush x:Key="Zinc300" Color="#d4d4d8"/>
+    <SolidColorBrush x:Key="Zinc400" Color="#a1a1aa"/>
+    <SolidColorBrush x:Key="Zinc500" Color="#71717a"/>
+    <SolidColorBrush x:Key="Zinc600" Color="#52525b"/>
+    <SolidColorBrush x:Key="Zinc700" Color="#3f3f46"/>
+    <SolidColorBrush x:Key="Zinc800" Color="#27272a"/>
+    <SolidColorBrush x:Key="Zinc900" Color="#18181b"/>
+    <SolidColorBrush x:Key="Zinc950" Color="#09090b"/>
+
+    <!-- Neutral -->
+    <SolidColorBrush x:Key="Neutral50" Color="#fafafa"/>
+    <SolidColorBrush x:Key="Neutral100" Color="#f5f5f5"/>
+    <SolidColorBrush x:Key="Neutral200" Color="#e5e5e5"/>
+    <SolidColorBrush x:Key="Neutral300" Color="#d4d4d4"/>
+    <SolidColorBrush x:Key="Neutral400" Color="#a3a3a3"/>
+    <SolidColorBrush x:Key="Neutral500" Color="#737373"/>
+    <SolidColorBrush x:Key="Neutral600" Color="#525252"/>
+    <SolidColorBrush x:Key="Neutral700" Color="#404040"/>
+    <SolidColorBrush x:Key="Neutral800" Color="#262626"/>
+    <SolidColorBrush x:Key="Neutral900" Color="#171717"/>
+    <SolidColorBrush x:Key="Neutral950" Color="#0a0a0a"/>
+
+    <!-- Stone -->
+    <SolidColorBrush x:Key="Stone50" Color="#fafaf9"/>
+    <SolidColorBrush x:Key="Stone100" Color="#f5f5f4"/>
+    <SolidColorBrush x:Key="Stone200" Color="#e7e5e4"/>
+    <SolidColorBrush x:Key="Stone300" Color="#d6d3d1"/>
+    <SolidColorBrush x:Key="Stone400" Color="#a8a29e"/>
+    <SolidColorBrush x:Key="Stone500" Color="#78716c"/>
+    <SolidColorBrush x:Key="Stone600" Color="#57534e"/>
+    <SolidColorBrush x:Key="Stone700" Color="#44403c"/>
+    <SolidColorBrush x:Key="Stone800" Color="#292524"/>
+    <SolidColorBrush x:Key="Stone900" Color="#1c1917"/>
+    <SolidColorBrush x:Key="Stone950" Color="#0c0a09"/>
+
+    <!-- Red -->
+    <SolidColorBrush x:Key="Red50" Color="#fef2f2"/>
+    <SolidColorBrush x:Key="Red100" Color="#fee2e2"/>
+    <SolidColorBrush x:Key="Red200" Color="#fecaca"/>
+    <SolidColorBrush x:Key="Red300" Color="#fca5a5"/>
+    <SolidColorBrush x:Key="Red400" Color="#f87171"/>
+    <SolidColorBrush x:Key="Red500" Color="#ef4444"/>
+    <SolidColorBrush x:Key="Red600" Color="#dc2626"/>
+    <SolidColorBrush x:Key="Red700" Color="#b91c1c"/>
+    <SolidColorBrush x:Key="Red800" Color="#991b1b"/>
+    <SolidColorBrush x:Key="Red900" Color="#7f1d1d"/>
+    <SolidColorBrush x:Key="Red950" Color="#450a0a"/>
+
+    <!-- Orange -->
+    <SolidColorBrush x:Key="Orange50" Color="#fff7ed"/>
+    <SolidColorBrush x:Key="Orange100" Color="#ffedd5"/>
+    <SolidColorBrush x:Key="Orange200" Color="#fed7aa"/>
+    <SolidColorBrush x:Key="Orange300" Color="#fdba74"/>
+    <SolidColorBrush x:Key="Orange400" Color="#fb923c"/>
+    <SolidColorBrush x:Key="Orange500" Color="#f97316"/>
+    <SolidColorBrush x:Key="Orange600" Color="#ea580c"/>
+    <SolidColorBrush x:Key="Orange700" Color="#c2410c"/>
+    <SolidColorBrush x:Key="Orange800" Color="#9a3412"/>
+    <SolidColorBrush x:Key="Orange900" Color="#7c2d12"/>
+    <SolidColorBrush x:Key="Orange950" Color="#431407"/>
+
+    <!-- Amber -->
+    <SolidColorBrush x:Key="Amber50" Color="#fffbeb"/>
+    <SolidColorBrush x:Key="Amber100" Color="#fef3c7"/>
+    <SolidColorBrush x:Key="Amber200" Color="#fde68a"/>
+    <SolidColorBrush x:Key="Amber300" Color="#fcd34d"/>
+    <SolidColorBrush x:Key="Amber400" Color="#fbbf24"/>
+    <SolidColorBrush x:Key="Amber500" Color="#f59e0b"/>
+    <SolidColorBrush x:Key="Amber600" Color="#d97706"/>
+    <SolidColorBrush x:Key="Amber700" Color="#b45309"/>
+    <SolidColorBrush x:Key="Amber800" Color="#92400e"/>
+    <SolidColorBrush x:Key="Amber900" Color="#78350f"/>
+    <SolidColorBrush x:Key="Amber950" Color="#451a03"/>
+
+    <!-- Yellow -->
+    <SolidColorBrush x:Key="Yellow50" Color="#fefce8"/>
+    <SolidColorBrush x:Key="Yellow100" Color="#fef9c3"/>
+    <SolidColorBrush x:Key="Yellow200" Color="#fef08a"/>
+    <SolidColorBrush x:Key="Yellow300" Color="#fde047"/>
+    <SolidColorBrush x:Key="Yellow400" Color="#facc15"/>
+    <SolidColorBrush x:Key="Yellow500" Color="#eab308"/>
+    <SolidColorBrush x:Key="Yellow600" Color="#ca8a04"/>
+    <SolidColorBrush x:Key="Yellow700" Color="#a16207"/>
+    <SolidColorBrush x:Key="Yellow800" Color="#854d0e"/>
+    <SolidColorBrush x:Key="Yellow900" Color="#713f12"/>
+    <SolidColorBrush x:Key="Yellow950" Color="#422006"/>
+
+    <!-- Lime -->
+    <SolidColorBrush x:Key="Lime50" Color="#f7fee7"/>
+    <SolidColorBrush x:Key="Lime100" Color="#ecfccb"/>
+    <SolidColorBrush x:Key="Lime200" Color="#d9f99d"/>
+    <SolidColorBrush x:Key="Lime300" Color="#bef264"/>
+    <SolidColorBrush x:Key="Lime400" Color="#a3e635"/>
+    <SolidColorBrush x:Key="Lime500" Color="#84cc16"/>
+    <SolidColorBrush x:Key="Lime600" Color="#65a30d"/>
+    <SolidColorBrush x:Key="Lime700" Color="#4d7c0f"/>
+    <SolidColorBrush x:Key="Lime800" Color="#3f6212"/>
+    <SolidColorBrush x:Key="Lime900" Color="#365314"/>
+    <SolidColorBrush x:Key="Lime950" Color="#1a2e05"/>
+
+    <!-- Green -->
+    <SolidColorBrush x:Key="Green50" Color="#f0fdf4"/>
+    <SolidColorBrush x:Key="Green100" Color="#dcfce7"/>
+    <SolidColorBrush x:Key="Green200" Color="#bbf7d0"/>
+    <SolidColorBrush x:Key="Green300" Color="#86efac"/>
+    <SolidColorBrush x:Key="Green400" Color="#4ade80"/>
+    <SolidColorBrush x:Key="Green500" Color="#22c55e"/>
+    <SolidColorBrush x:Key="Green600" Color="#16a34a"/>
+    <SolidColorBrush x:Key="Green700" Color="#15803d"/>
+    <SolidColorBrush x:Key="Green800" Color="#166534"/>
+    <SolidColorBrush x:Key="Green900" Color="#14532d"/>
+    <SolidColorBrush x:Key="Green950" Color="#052e16"/>
+
+    <!-- Emerald -->
+    <SolidColorBrush x:Key="Emerald50" Color="#ecfdf5"/>
+    <SolidColorBrush x:Key="Emerald100" Color="#d1fae5"/>
+    <SolidColorBrush x:Key="Emerald200" Color="#a7f3d0"/>
+    <SolidColorBrush x:Key="Emerald300" Color="#6ee7b7"/>
+    <SolidColorBrush x:Key="Emerald400" Color="#34d399"/>
+    <SolidColorBrush x:Key="Emerald500" Color="#10b981"/>
+    <SolidColorBrush x:Key="Emerald600" Color="#059669"/>
+    <SolidColorBrush x:Key="Emerald700" Color="#047857"/>
+    <SolidColorBrush x:Key="Emerald800" Color="#065f46"/>
+    <SolidColorBrush x:Key="Emerald900" Color="#064e3b"/>
+    <SolidColorBrush x:Key="Emerald950" Color="#022c22"/>
+
+    <!-- Teal -->
+    <SolidColorBrush x:Key="Teal50" Color="#f0fdfa"/>
+    <SolidColorBrush x:Key="Teal100" Color="#ccfbf1"/>
+    <SolidColorBrush x:Key="Teal200" Color="#99f6e4"/>
+    <SolidColorBrush x:Key="Teal300" Color="#5eead4"/>
+    <SolidColorBrush x:Key="Teal400" Color="#2dd4bf"/>
+    <SolidColorBrush x:Key="Teal500" Color="#14b8a6"/>
+    <SolidColorBrush x:Key="Teal600" Color="#0d9488"/>
+    <SolidColorBrush x:Key="Teal700" Color="#0f766e"/>
+    <SolidColorBrush x:Key="Teal800" Color="#115e59"/>
+    <SolidColorBrush x:Key="Teal900" Color="#134e4a"/>
+    <SolidColorBrush x:Key="Teal950" Color="#042f2e"/>
+
+    <!-- Cyan -->
+    <SolidColorBrush x:Key="Cyan50" Color="#ecfeff"/>
+    <SolidColorBrush x:Key="Cyan100" Color="#cffafe"/>
+    <SolidColorBrush x:Key="Cyan200" Color="#a5f3fc"/>
+    <SolidColorBrush x:Key="Cyan300" Color="#67e8f9"/>
+    <SolidColorBrush x:Key="Cyan400" Color="#22d3ee"/>
+    <SolidColorBrush x:Key="Cyan500" Color="#06b6d4"/>
+    <SolidColorBrush x:Key="Cyan600" Color="#0891b2"/>
+    <SolidColorBrush x:Key="Cyan700" Color="#0e7490"/>
+    <SolidColorBrush x:Key="Cyan800" Color="#155e75"/>
+    <SolidColorBrush x:Key="Cyan900" Color="#164e63"/>
+    <SolidColorBrush x:Key="Cyan950" Color="#083344"/>
+
+    <!-- Sky -->
+    <SolidColorBrush x:Key="Sky50" Color="#f0f9ff"/>
+    <SolidColorBrush x:Key="Sky100" Color="#e0f2fe"/>
+    <SolidColorBrush x:Key="Sky200" Color="#bae6fd"/>
+    <SolidColorBrush x:Key="Sky300" Color="#7dd3fc"/>
+    <SolidColorBrush x:Key="Sky400" Color="#38bdf8"/>
+    <SolidColorBrush x:Key="Sky500" Color="#0ea5e9"/>
+    <SolidColorBrush x:Key="Sky600" Color="#0284c7"/>
+    <SolidColorBrush x:Key="Sky700" Color="#0369a1"/>
+    <SolidColorBrush x:Key="Sky800" Color="#075985"/>
+    <SolidColorBrush x:Key="Sky900" Color="#0c4a6e"/>
+    <SolidColorBrush x:Key="Sky950" Color="#082f49"/>
+
+    <!-- Blue -->
+    <SolidColorBrush x:Key="Blue50" Color="#eff6ff"/>
+    <SolidColorBrush x:Key="Blue100" Color="#dbeafe"/>
+    <SolidColorBrush x:Key="Blue200" Color="#bfdbfe"/>
+    <SolidColorBrush x:Key="Blue300" Color="#93c5fd"/>
+    <SolidColorBrush x:Key="Blue400" Color="#60a5fa"/>
+    <SolidColorBrush x:Key="Blue500" Color="#3b82f6"/>
+    <SolidColorBrush x:Key="Blue600" Color="#2563eb"/>
+    <SolidColorBrush x:Key="Blue700" Color="#1d4ed8"/>
+    <SolidColorBrush x:Key="Blue800" Color="#1e40af"/>
+    <SolidColorBrush x:Key="Blue900" Color="#1e3a8a"/>
+    <SolidColorBrush x:Key="Blue950" Color="#172554"/>
+
+    <!-- Indigo -->
+    <SolidColorBrush x:Key="Indigo50" Color="#eef2ff"/>
+    <SolidColorBrush x:Key="Indigo100" Color="#e0e7ff"/>
+    <SolidColorBrush x:Key="Indigo200" Color="#c7d2fe"/>
+    <SolidColorBrush x:Key="Indigo300" Color="#a5b4fc"/>
+    <SolidColorBrush x:Key="Indigo400" Color="#818cf8"/>
+    <SolidColorBrush x:Key="Indigo500" Color="#6366f1"/>
+    <SolidColorBrush x:Key="Indigo600" Color="#4f46e5"/>
+    <SolidColorBrush x:Key="Indigo700" Color="#4338ca"/>
+    <SolidColorBrush x:Key="Indigo800" Color="#3730a3"/>
+    <SolidColorBrush x:Key="Indigo900" Color="#312e81"/>
+    <SolidColorBrush x:Key="Indigo950" Color="#1e1b4b"/>
+
+    <!-- Violet -->
+    <SolidColorBrush x:Key="Violet50" Color="#f5f3ff"/>
+    <SolidColorBrush x:Key="Violet100" Color="#ede9fe"/>
+    <SolidColorBrush x:Key="Violet200" Color="#ddd6fe"/>
+    <SolidColorBrush x:Key="Violet300" Color="#c4b5fd"/>
+    <SolidColorBrush x:Key="Violet400" Color="#a78bfa"/>
+    <SolidColorBrush x:Key="Violet500" Color="#8b5cf6"/>
+    <SolidColorBrush x:Key="Violet600" Color="#7c3aed"/>
+    <SolidColorBrush x:Key="Violet700" Color="#6d28d9"/>
+    <SolidColorBrush x:Key="Violet800" Color="#5b21b6"/>
+    <SolidColorBrush x:Key="Violet900" Color="#4c1d95"/>
+    <SolidColorBrush x:Key="Violet950" Color="#2e1065"/>
+
+    <!-- Purple -->
+    <SolidColorBrush x:Key="Purple50" Color="#faf5ff"/>
+    <SolidColorBrush x:Key="Purple100" Color="#f3e8ff"/>
+    <SolidColorBrush x:Key="Purple200" Color="#e9d5ff"/>
+    <SolidColorBrush x:Key="Purple300" Color="#d8b4fe"/>
+    <SolidColorBrush x:Key="Purple400" Color="#c084fc"/>
+    <SolidColorBrush x:Key="Purple500" Color="#a855f7"/>
+    <SolidColorBrush x:Key="Purple600" Color="#9333ea"/>
+    <SolidColorBrush x:Key="Purple700" Color="#7e22ce"/>
+    <SolidColorBrush x:Key="Purple800" Color="#6b21a8"/>
+    <SolidColorBrush x:Key="Purple900" Color="#581c87"/>
+    <SolidColorBrush x:Key="Purple950" Color="#3b0764"/>
+
+    <!-- Fuchsia -->
+    <SolidColorBrush x:Key="Fuchsia50" Color="#fdf4ff"/>
+    <SolidColorBrush x:Key="Fuchsia100" Color="#fae8ff"/>
+    <SolidColorBrush x:Key="Fuchsia200" Color="#f5d0fe"/>
+    <SolidColorBrush x:Key="Fuchsia300" Color="#f0abfc"/>
+    <SolidColorBrush x:Key="Fuchsia400" Color="#e879f9"/>
+    <SolidColorBrush x:Key="Fuchsia500" Color="#d946ef"/>
+    <SolidColorBrush x:Key="Fuchsia600" Color="#c026d3"/>
+    <SolidColorBrush x:Key="Fuchsia700" Color="#a21caf"/>
+    <SolidColorBrush x:Key="Fuchsia800" Color="#86198f"/>
+    <SolidColorBrush x:Key="Fuchsia900" Color="#701a75"/>
+    <SolidColorBrush x:Key="Fuchsia950" Color="#4a044e"/>
+
+    <!-- Pink -->
+    <SolidColorBrush x:Key="Pink50" Color="#fdf2f8"/>
+    <SolidColorBrush x:Key="Pink100" Color="#fce7f3"/>
+    <SolidColorBrush x:Key="Pink200" Color="#fbcfe8"/>
+    <SolidColorBrush x:Key="Pink300" Color="#f9a8d4"/>
+    <SolidColorBrush x:Key="Pink400" Color="#f472b6"/>
+    <SolidColorBrush x:Key="Pink500" Color="#ec4899"/>
+    <SolidColorBrush x:Key="Pink600" Color="#db2777"/>
+    <SolidColorBrush x:Key="Pink700" Color="#be185d"/>
+    <SolidColorBrush x:Key="Pink800" Color="#9d174d"/>
+    <SolidColorBrush x:Key="Pink900" Color="#831843"/>
+    <SolidColorBrush x:Key="Pink950" Color="#500724"/>
+
+    <!-- Rose -->
+    <SolidColorBrush x:Key="Rose50" Color="#fff1f2"/>
+    <SolidColorBrush x:Key="Rose100" Color="#ffe4e6"/>
+    <SolidColorBrush x:Key="Rose200" Color="#fecdd3"/>
+    <SolidColorBrush x:Key="Rose300" Color="#fda4af"/>
+    <SolidColorBrush x:Key="Rose400" Color="#fb7185"/>
+    <SolidColorBrush x:Key="Rose500" Color="#f43f5e"/>
+    <SolidColorBrush x:Key="Rose600" Color="#e11d48"/>
+    <SolidColorBrush x:Key="Rose700" Color="#be123c"/>
+    <SolidColorBrush x:Key="Rose800" Color="#9f1239"/>
+    <SolidColorBrush x:Key="Rose900" Color="#881337"/>
+    <SolidColorBrush x:Key="Rose950" Color="#4c0519"/>
+
+
+</ResourceDictionary>

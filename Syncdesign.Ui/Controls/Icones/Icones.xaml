@@ -1,0 +1,105 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    
+    <!-- IconSearchPath -->
+    <Geometry x:Key="IconSearchPath">F1 M512,512z M0,0z M0,0L512,0 512,512 0,512z</Geometry>
+    <DrawingGroup x:Key="IconSearchGroup">
+        <GeometryDrawing Brush="{StaticResource IconColor}" Geometry="{StaticResource IconSearchPath}" />
+    </DrawingGroup>
+    <DrawingImage x:Key="IconSearchImage" Drawing="{StaticResource IconSearchGroup}" />
+
+    <!-- IconUserPath -->   
+    <Geometry x:Key="IconUserPath">  F1 M512,512z M0,0z M19.877,438.72C86.954,398.522 115.074,430.08 158.564,473.47 127.829,485.18 90.009,453.51 90.009,453.51L114.868,483.35C114.868,483.35,82.148,499.38,58.673,454.76L69.673,489.23C69.673,489.23,37.914,498.86,19.877,438.72z M492.123,438.72C425.046,398.522 396.926,430.08 353.436,473.47 384.171,485.18 421.991,453.51 421.991,453.51L397.132,483.35C397.132,483.35,429.852,499.38,453.327,454.76L442.327,489.23C442.327,489.23,474.086,498.86,492.123,438.72z M256,75.309C156.274,75.309 75.309,156.274 75.309,256 75.309,355.726 156.274,436.69 256,436.69 355.726,436.69 436.691,355.726 436.691,256 436.691,156.274 355.726,75.309 256,75.309z M247.505,423.79L264.495,423.79 264.495,406.81 247.505,406.81z M256,120.235C330.931,120.235 391.765,181.069 391.765,256 391.765,330.931 330.931,391.765 256,391.765 181.069,391.765 120.235,330.931 120.235,256 120.235,181.069 181.069,120.235 256,120.235z M131.345,368.642L143.358,380.655 155.372,368.642 143.358,356.628z M368.642,380.655L380.655,368.642 368.642,356.628 356.628,368.642z M256,146.803C195.732,146.803 146.803,195.732 146.803,256 146.803,316.268 195.732,365.197 256,365.197 316.268,365.197 365.197,316.268 365.197,256 365.197,195.732 316.268,146.803 256,146.803z M308.174,319.597C295.927,329.659,280.726,336.256,264.077,337.881L264.077,275.5z M247.923,337.881C231.272,336.255,216.073,329.658,203.826,319.597L247.923,275.5z M192.403,308.174C182.341,295.927,175.744,280.726,174.119,264.077L236.5,264.077z M337.881,264.077C336.255,280.728,329.658,295.927,319.597,308.174L275.5,264.077z M88.206,247.505L88.206,264.495 105.195,264.495 105.195,247.505z M423.794,264.495L423.794,247.505 406.805,247.505 406.805,264.495z M319.597,203.826C329.659,216.073,336.256,231.274,337.881,247.923L275.5,247.923z M192.403,203.826L236.5,247.923 174.119,247.923C175.745,231.272,182.342,216.073,192.403,203.826z M247.923,174.119L247.923,236.5 203.826,192.403C216.073,182.341,231.274,175.744,247.923,174.119z M264.077,174.119C280.728,175.745,295.927,182.342,308.174,192.403L264.077,236.5z M143.358,131.345L131.345,143.358 143.358,155.372 155.372,143.358z M380.655,143.358L368.642,131.345 356.628,143.358 368.642,155.372z M264.495,88.206L247.505,88.206 247.505,105.195 264.495,105.195z M492.123,40.71C425.046,0.516 396.926,32.077 353.436,75.467 384.171,87.179 421.991,55.5 421.991,55.5L397.132,85.345C397.132,85.345,429.852,101.376,453.327,56.757L442.327,91.226C442.327,91.226,474.086,100.857,492.123,40.71z M19.877,40.71C86.954,0.516 115.074,32.077 158.564,75.467 127.829,87.179 90.009,55.5 90.009,55.5L114.868,85.345C114.868,85.345,82.148,101.376,58.673,56.757L69.673,91.226C69.673,91.226,37.914,100.857,19.877,40.71z</Geometry>
+    <DrawingGroup x:Key="IconUserGroup">
+        <GeometryDrawing Brush="{StaticResource IconColor}" Geometry="{StaticResource IconUserPath}" />
+    </DrawingGroup>
+    <DrawingImage x:Key="IconUserImage" Drawing="{StaticResource IconUserGroup}" />
+ 
+    <!-- IconPersonPath -->
+    <Geometry x:Key="IconPersonPath">F1 M512,512z M0,0z M332.64,64.58C313.18,43.57 286,32 256,32 225.84,32 198.57,43.5 179.2,64.38 159.62,85.49 150.08,114.18 152.32,145.16 156.76,206.28 203.27,256 256,256 308.73,256 355.16,206.29 359.67,145.18 361.94,114.48 352.34,85.85 332.64,64.58z M432,480L80,480A31,31,0,0,1,55.8,468.87C49.3,461.1 46.68,450.49 48.62,439.76 57.06,392.94 83.4,353.61 124.8,326 161.58,301.49 208.17,288 256,288 303.83,288 350.42,301.5 387.2,326 428.6,353.6 454.94,392.93 463.38,439.75 465.32,450.48 462.7,461.09 456.2,468.86A31,31,0,0,1,432,480z</Geometry>
+    <DrawingGroup x:Key="IconPersonGroup" ClipGeometry="M0,0 V512 H512 V0 H0 Z">
+        <GeometryDrawing Brush="{StaticResource IconColor}" Geometry="{StaticResource IconPersonPath}" />
+    </DrawingGroup>
+    <DrawingImage x:Key="IconPersonImage" Drawing="{StaticResource IconPersonGroup}" />
+
+    <!-- IconLockClosedPath -->
+    <Geometry x:Key="IconLockClosedPath">F1 M512,512z M0,0z M368,192L352,192 352,112A96,96,0,1,0,160,112L160,192 144,192A64.07,64.07,0,0,0,80,256L80,432A64.07,64.07,0,0,0,144,496L368,496A64.07,64.07,0,0,0,432,432L432,256A64.07,64.07,0,0,0,368,192z M320,192L192,192 192,112A64,64,0,1,1,320,112z</Geometry>
+    <DrawingGroup x:Key="IconLockClosedGroup" ClipGeometry="M0,0 V512 H512 V0 H0 Z">
+        <GeometryDrawing Brush="{StaticResource IconColor}" Geometry="{StaticResource IconLockClosedPath}" />
+    </DrawingGroup>
+    <DrawingImage x:Key="IconLockClosedImage" Drawing="{StaticResource IconLockClosedGroup}" />
+
+    <!-- IconEyePath -->
+    <Geometry x:Key="IconEyePath">F1 M512,512z M0,0z M490.84,238.6C464.38,197.68 430.05,162.92 391.57,138.07 349,110.55 302,96 255.66,96 213.14,96 171.33,108.15 131.39,132.11 90.66,156.54 53.76,192.23 21.71,238.18A31.92,31.92,0,0,0,21.07,273.72C47.48,315.05 81.47,349.86 119.35,374.37 162,402 207.9,416 255.66,416 302.37,416 349.47,401.57 391.86,374.28 430.32,349.51 464.58,314.62 490.94,273.36A32.2,32.2,0,0,0,490.84,238.6z M256,352A96,96,0,1,1,352,256A96.11,96.11,0,0,1,256,352z</Geometry>
+    <DrawingGroup x:Key="IconEyeGroup" ClipGeometry="M0,0 V512 H512 V0 H0 Z">
+        <GeometryDrawing Brush="{StaticResource IconColor}">
+            <GeometryDrawing.Geometry>
+                <EllipseGeometry RadiusX="64" RadiusY="64" Center="256,256" />
+            </GeometryDrawing.Geometry>
+        </GeometryDrawing>
+        <GeometryDrawing Brush="{StaticResource IconColor}" Geometry="{StaticResource IconEyePath}" />
+    </DrawingGroup>
+    <DrawingImage x:Key="IconEyeImage" Drawing="{StaticResource IconEyeGroup}" />
+
+    <!-- IconEyeOffPath -->
+    <Geometry x:Key="IconEyeOffPath1">F1 M512,512z M0,0z M432,448A15.92,15.92,0,0,1,420.69,443.31L68.69,91.31A16,16,0,0,1,91.31,68.69L443.31,420.69A16,16,0,0,1,432,448z M248,315.85L196.21,264.06A2,2,0,0,0,192.82,265.75A64.11,64.11,0,0,0,246.31,319.24A2,2,0,0,0,248,315.85z M264,196.15L315.87,248A2,2,0,0,0,319.27,246.31A64.13,64.13,0,0,0,265.72,192.76A2,2,0,0,0,264,196.15z</Geometry>
+    <Geometry x:Key="IconEyeOffPath2">F1 M512,512z M0,0z M491,273.36A32.2,32.2,0,0,0,490.9,238.6C464.44,197.68 430.11,162.92 391.63,138.07 349,110.55 302,96 255.68,96A226.54,226.54,0,0,0,183.86,107.79A4,4,0,0,0,182.3,114.42L229.54,161.66A4,4,0,0,0,233.36,162.71A96,96,0,0,1,349.36,278.71A4,4,0,0,0,350.41,282.52L418.36,350.52A4,4,0,0,0,423.76,350.76A343.81,343.81,0,0,0,491,273.36z M256,352A96,96,0,0,1,162.7,233.37A4,4,0,0,0,161.65,229.56L94.81,162.69A4,4,0,0,0,89.4,162.46C65.01,183.27,42.4,208.59,21.73,238.18A31.92,31.92,0,0,0,21.09,273.72C47.5,315.05 81.48,349.86 119.37,374.37 162.06,402 207.92,416 255.68,416A238.22,238.22,0,0,0,328.32,404.45A4,4,0,0,0,329.93,397.81L282.46,350.35A4,4,0,0,0,278.65,349.3A96,96,0,0,1,256,352z</Geometry>
+    <DrawingGroup x:Key="IconEyeOffGroup" ClipGeometry="M0,0 V512 H512 V0 H0 Z">
+        <GeometryDrawing   Geometry="{StaticResource IconEyeOffPath1}" />
+        <GeometryDrawing   Geometry="{StaticResource IconEyeOffPath2}" />
+    </DrawingGroup>
+    <DrawingImage x:Key="IconEyeOffImage" Drawing="{StaticResource IconEyeOffGroup}" />
+
+    <!--IconBriefcasePath-->
+    <Geometry x:Key="IconBriefcasePath">F1 M512,512z M0,0z M496,176A64.07,64.07,0,0,0,432,112L384,112 384,96A48.05,48.05,0,0,0,336,48L176,48A48.05,48.05,0,0,0,128,96L128,112 80,112A64.07,64.07,0,0,0,16,176L16,224 496,224z M352,112L160,112 160,96A16,16,0,0,1,176,80L336,80A16,16,0,0,1,352,96z M336,264A24,24,0,0,1,312,288L200,288A24,24,0,0,1,176,264L176,260A4,4,0,0,0,172,256L16,256 16,400A64,64,0,0,0,80,464L432,464A64,64,0,0,0,496,400L496,256 340,256A4,4,0,0,0,336,260z</Geometry>
+    <DrawingGroup x:Key="IconBriefcaseGroup"  ClipGeometry="M0,0 V512 H512 V0 H0 Z">
+        <GeometryDrawing Brush="{StaticResource IconColor}"  Geometry="{StaticResource IconBriefcasePath}"/>
+    </DrawingGroup>
+    <DrawingImage x:Key="briefcaseDrawingImage"  Drawing="{StaticResource IconBriefcaseGroup}"/>
+
+    <!--IconChevronChevronPath-->
+    <Geometry x:Key="IconChevronChevronPath">F1 M512,512z M0,0z M184,112L328,256 184,400</Geometry>
+    <DrawingGroup x:Key="IconChevronChevronGroup" ClipGeometry="M0,0 V512 H512 V0 H0 Z">
+        <GeometryDrawing Geometry="{StaticResource IconChevronChevronPath}">
+            <GeometryDrawing.Pen>
+                <Pen Brush="{StaticResource IconColor}" Thickness="48" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" MiterLimit="1" />
+            </GeometryDrawing.Pen>
+        </GeometryDrawing>
+    </DrawingGroup>
+    <DrawingImage x:Key="IconChevronChevronImage" Drawing="{StaticResource IconChevronChevronGroup}" />
+
+    <!--IconChevronDownPath-->
+    <Geometry x:Key="IconChevronDownPath">F1 M512,512z M0,0z M112,184L256,328 400,184</Geometry>
+    <DrawingGroup x:Key="IconChevronDownGroup" ClipGeometry="M0,0 V512 H512 V0 H0 Z">
+        <GeometryDrawing Geometry="{StaticResource IconChevronDownPath}">
+            <GeometryDrawing.Pen>
+                <Pen Brush="{StaticResource IconColor}"  Thickness="48" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" MiterLimit="1" />
+            </GeometryDrawing.Pen>
+        </GeometryDrawing>
+    </DrawingGroup>
+    <DrawingImage x:Key="IconChevronDownImage" Drawing="{StaticResource IconChevronDownGroup}" />
+
+    <!--IconLogoutPath-->
+    <Geometry x:Key="IconLogoutPath">F1 M512,512z M0,0z M160,256A16,16,0,0,1,176,240L320,240 320,136C320,104,286.21,80,256,80L104,80A56.06,56.06,0,0,0,48,136L48,376A56.06,56.06,0,0,0,104,432L264,432A56.06,56.06,0,0,0,320,376L320,272 176,272A16,16,0,0,1,160,256z M459.31,244.69L379.31,164.69A16,16,0,0,0,356.69,187.31L409.37,240 320,240 320,272 409.37,272 356.69,324.69A16,16,0,1,0,379.31,347.31L459.31,267.31A16,16,0,0,0,459.31,244.69z</Geometry>
+    <DrawingGroup x:Key="IconLogoutGroup" ClipGeometry="M0,0 V512 H512 V0 H0 Z">
+        <GeometryDrawing Brush="{StaticResource IconColor}" Geometry="{StaticResource IconLogoutPath}" />
+    </DrawingGroup>
+    <DrawingImage x:Key="IconLogoutImage" Drawing="{StaticResource IconLogoutGroup}" />
+
+    <!--IconRefreshPath-->
+    <Geometry x:Key="IconRefreshPath">F1 M512,512z M0,0z M256,48C141.31,48 48,141.32 48,256 48,370.86 141.14,464 256,464 370.69,464 464,370.69 464,256 464,141.13 370.87,48 256,48z M256,361A94,94,0,0,1,256,173L260.21,173 246.1,158.9A14,14,0,0,1,265.9,139.1L305.9,179.1A14,14,0,0,1,305.9,198.9L265.9,238.9A14,14,0,0,1,246.1,219.1L264.1,201.1C261.72,201,259,201,256,201A66,66,0,1,0,322,267A14,14,0,0,1,350,267A94.11,94.11,0,0,1,256,361z</Geometry>
+    <DrawingGroup x:Key="IconRefreshGroup" ClipGeometry="M0,0 V512 H512 V0 H0 Z">
+        <GeometryDrawing Brush="{StaticResource IconColor}" Geometry="{StaticResource IconRefreshPath}" />
+    </DrawingGroup>
+    <DrawingImage x:Key="IconRefreshImage" Drawing="{StaticResource IconRefreshGroup}" />
+
+    <!--IconArrowBackPath-->
+    <Geometry x:Key="IconArrowBackPath">F1 M512,512z M0,0z M48,256C48,370.87 141.13,464 256,464 370.87,464 464,370.87 464,256 464,141.13 370.87,48 256,48 141.13,48 48,141.13 48,256z M272,175.91L208.42,240 358,240 358,272 208.42,272 272,336.09 249.3,358.63 147.46,256 249.3,153.37z</Geometry>
+    <DrawingGroup x:Key="IconArrowBackGroup" ClipGeometry="M0,0 V512 H512 V0 H0 Z">
+        <GeometryDrawing Brush="{StaticResource IconColor}"  Geometry="{StaticResource IconArrowBackPath}" />
+    </DrawingGroup>
+    <DrawingImage x:Key="IconArrowBackGroupImage" Drawing="{StaticResource IconArrowBackGroup}" />
+
+</ResourceDictionary>

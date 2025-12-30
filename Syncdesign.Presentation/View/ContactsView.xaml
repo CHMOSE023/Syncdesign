@@ -129,7 +129,11 @@
                 </Style>
             </TreeView.ItemContainerStyle>
             
-            <TreeView.Resources>
+            <TreeView.Resources>     
+                
+                <!-- 应用滚动条样式 -->
+                <Style TargetType="ScrollBar" BasedOn="{StaticResource OverlayScrollBarStyle}"/>
+                
                 <HierarchicalDataTemplate DataType="{x:Type vm:ContactGroup}" 
                                           ItemsSource="{Binding Items}">
                     <bim:SectionExpander IsExpanded="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource AncestorType=TreeViewItem}}">
@@ -140,8 +144,7 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <TextBlock Text="{Binding GroupName}" VerticalAlignment="Center" Foreground="#333"/>
-                                <TextBlock Grid.Column="1" Text="{Binding Items.Count, StringFormat='({0})'}" 
-                                           Margin="3,0,0,0" VerticalAlignment="Center" FontSize="11" Foreground="#999"/>
+                                <TextBlock Grid.Column="1" Text="{Binding Items.Count, StringFormat='({0})'}"  Margin="3,0,0,0" VerticalAlignment="Center" FontSize="11" Foreground="#999"/>
                             </Grid>
                         </bim:SectionExpander.Header>
                     </bim:SectionExpander>
@@ -181,9 +184,7 @@
                         </MultiDataTrigger>
                         <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=TreeViewItem}}" Value="True">
                             <Setter TargetName="Root" Property="Background" Value="#DDD"/>
-                        </DataTrigger>
-                  
-                        
+                        </DataTrigger>                        
                     </DataTemplate.Triggers>
                 </DataTemplate>
             </TreeView.Resources>

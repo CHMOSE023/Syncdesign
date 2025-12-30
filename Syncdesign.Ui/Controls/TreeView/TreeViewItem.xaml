@@ -1,0 +1,187 @@
+<ResourceDictionary
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:Syncdesign.Ui.Controls"
+        xmlns:convers="clr-namespace:Syncdesign.Ui.Converters"
+     >
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Syncdesign.Ui;component/Controls/Colors/Colors.xaml"/>
+        <ResourceDictionary Source="/Syncdesign.Ui;component/Controls/Icones/Icones.xaml"/>
+    </ResourceDictionary.MergedDictionaries> 
+
+
+    <Style x:Key="ExpandCollapseToggleStyle" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="Width" Value="16"/>
+        <Setter Property="Height" Value="16"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Grid Background="Transparent">
+                        <Image x:Name="ChevronChevron" VerticalAlignment="Center" Height="12" Width="12">
+                            <Image.Source>
+                                <DrawingImage>
+                                    <DrawingImage.Drawing>
+                                        <GeometryDrawing Geometry="{StaticResource IconChevronChevronPath}" >
+                                            <GeometryDrawing.Pen>
+                                                <Pen Brush="{StaticResource Gray500}" Thickness="48" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" MiterLimit="1" />
+                                            </GeometryDrawing.Pen>
+                                        </GeometryDrawing>
+                                    </DrawingImage.Drawing>
+                                </DrawingImage>
+                            </Image.Source>
+                        </Image>
+                        <Image x:Name="ChevronDown" VerticalAlignment="Center" Height="12" Width="12" Visibility="Hidden">
+                            <Image.Source>
+                                <DrawingImage>
+                                    <DrawingImage.Drawing>
+                                        <GeometryDrawing Geometry="{StaticResource IconChevronDownPath}" >
+                                            <GeometryDrawing.Pen>
+                                                <Pen Brush="{StaticResource Gray500}" Thickness="48" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" MiterLimit="1" />
+                                            </GeometryDrawing.Pen>
+                                        </GeometryDrawing>
+                                    </DrawingImage.Drawing>
+                                </DrawingImage>
+                            </Image.Source>
+                        </Image>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="ChevronChevron" Property="Visibility" Value="Hidden"/>
+                            <Setter TargetName="ChevronDown" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="TreeViewItemFocusVisual">
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Rectangle/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style  x:Key="DefaultTreeViewItemStyle" TargetType="{x:Type TreeViewItem}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        <Setter Property="FocusVisualStyle" Value="{StaticResource TreeViewItemFocusVisual}"/>
+        <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
+        <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TreeViewItem}">
+                    <ControlTemplate.Resources>
+                        <convers:IndentConverter x:Key="IndentConverter" IndentSize="16" />
+                        <convers:CanvasConverter x:Key="CanvasConverter" Indent="16" VerticalSpacing="18"/>
+                    </ControlTemplate.Resources>
+                    <Grid Background="Transparent">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid x:Name="Item">
+                            <Border  x:Name="Bd" 
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"  
+                               >
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="{Binding Converter={StaticResource IndentConverter}, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        <ColumnDefinition MinWidth="16" Width="auto" />
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Canvas Background="Transparent">
+                                        <ItemsControl ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CanvasConverter}}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <Canvas/>
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Line X1="{Binding X1}" Y1="{Binding Y1}" X2="{Binding X2}" Y2="{Binding Y2}" 
+                                                       Stroke="{Binding Stroke}"
+                                                       StrokeThickness="{Binding StrokeThickness}"
+                                                       StrokeDashArray="0,2"/>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </Canvas>
+                                    <ToggleButton 
+                                        Grid.Column="1" 
+                                        x:Name="Expander" 
+                                        ClickMode="Press"                                                 
+                                        IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource Mode=TemplatedParent},Mode=TwoWay}"
+                                        Style="{StaticResource ExpandCollapseToggleStyle}" 
+                                  />
+                                    <Border
+                                    Grid.Column="2" 
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    Padding="{TemplateBinding Padding}"
+                                    SnapsToDevicePixels="true" 
+                                    ClipToBounds="True" 
+                                    >
+                                        <ContentPresenter x:Name="PART_Header"  
+                                                       ContentSource="Header"    
+                                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                                       SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                    </Border>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                        <ItemsPresenter x:Name="ItemsHost" Grid.Row="1"/>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsExpanded" Value="false">
+                            <Setter Property="Visibility" TargetName="ItemsHost" Value="Collapsed"/>
+                        </Trigger>
+                        <Trigger Property="HasItems" Value="false">
+                            <Setter Property="Visibility" TargetName="Expander" Value="Hidden"/>
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="true">
+                            <Setter Property="Background" TargetName="Bd" Value="{StaticResource Gray300}"/>
+                            <Setter Property="Foreground" Value="White"/>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsSelected" Value="True"/>
+                                <Condition Property="IsSelectionActive" Value="false"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Background" TargetName="Bd" Value="{StaticResource Gray300}"/>
+                            <Setter Property="Foreground" Value="White"/>
+                        </MultiTrigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger> 
+                        
+                        <DataTrigger Binding="{Binding  ElementName=Item ,Path=IsMouseOver}" Value="True">
+                            <Setter Property="Background" TargetName="Bd" Value="{StaticResource Gray300}"/>
+                            <Setter Property="Foreground" Value="White"/>
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="VirtualizingPanel.IsVirtualizing" Value="true">
+                <Setter Property="ItemsPanel">
+                    <Setter.Value>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel/>
+                        </ItemsPanelTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

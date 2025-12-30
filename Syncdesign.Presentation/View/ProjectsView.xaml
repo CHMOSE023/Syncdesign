@@ -3,10 +3,99 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Syncdesign.Presentation.View"
+             xmlns:local="clr-namespace:Syncdesign.Presentation.View" 
+             xmlns:bim="http://bimhub.top/syncdesign/2026/xaml"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <bim:ControlsDictionary/>
+                <bim:ThemesDictionary/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid>
-        <Label>项目列表</Label>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ComboBox  Grid.Column="1" SelectedIndex="0" FontWeight="Bold">
+            <ComboBoxItem Width="auto">
+                <StackPanel Orientation="Horizontal">
+                    <bim:SymbolIcon FontSize="18" Symbol="Briefcase48"/>
+                    <Label Content="XT01-公司通用文件"/>
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem >
+                <StackPanel Orientation="Horizontal">
+                    <bim:SymbolIcon FontSize="18" Symbol="Briefcase48"/>
+                    <Label Content="XT02-XXXXXX项目"/>
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem >
+                <StackPanel Orientation="Horizontal">
+                    <bim:SymbolIcon FontSize="18"  Symbol="Briefcase48"/>
+                    <Label Content="XT03-XXXXXX项目"/>
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem >
+                <StackPanel Orientation="Horizontal">
+                    <bim:SymbolIcon FontSize="18" Symbol="Briefcase48"/>
+                    <Label Content="XT04-XXXXXX项目"/>
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem >
+                <StackPanel Orientation="Horizontal">
+                    <bim:SymbolIcon FontSize="18" Symbol="Briefcase48"/>
+                    <Label Content="XT05-XXXXXX项目"/>
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem >
+                <StackPanel Orientation="Horizontal">
+                    <bim:SymbolIcon FontSize="18" Symbol="Briefcase48"/>
+                    <Label Content="XT06-XXXXXX项目"/>
+                </StackPanel>
+            </ComboBoxItem>
+        </ComboBox>
+        <TreeView Grid.Row="1"   >
+            <TreeView.Resources>
+                <Style TargetType="TreeViewItem" BasedOn="{StaticResource DefaultTreeViewItemStyle}" />
+            </TreeView.Resources>
+            <TreeViewItem Header="01-A">
+                <TreeViewItem Header="01-项目文件">
+                    
+                </TreeViewItem>
+            </TreeViewItem>
+            <TreeViewItem Header="02-A">
+                <TreeViewItem Header="01-项目文件">
+
+                </TreeViewItem>
+            </TreeViewItem>
+            <TreeViewItem Header="03-A">
+                <TreeViewItem Header="01-项目文件">
+                    <TreeViewItem Header="04-A">
+                        <TreeViewItem Header="01-项目文件">
+
+                        </TreeViewItem>
+                    </TreeViewItem>
+                    <TreeViewItem Header="05-A">
+                        <TreeViewItem Header="01-项目文件">
+
+                        </TreeViewItem>
+                    </TreeViewItem>
+                </TreeViewItem>
+            </TreeViewItem>
+            <TreeViewItem Header="04-A">
+                <TreeViewItem Header="01-项目文件">
+
+                </TreeViewItem>
+            </TreeViewItem>
+            <TreeViewItem Header="05-A">
+                <TreeViewItem Header="01-项目文件">
+
+                </TreeViewItem>
+            </TreeViewItem>
+        </TreeView>
     </Grid>
 </UserControl>

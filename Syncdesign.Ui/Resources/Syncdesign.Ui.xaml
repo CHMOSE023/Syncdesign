@@ -6,10 +6,17 @@
         <ResourceDictionary Source="pack://application:,,,/Syncdesign.Ui;component/Resources/Fonts.xaml" />
         
         <ResourceDictionary Source="pack://application:,,,/Syncdesign.Ui;component/Controls/Button/Button.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Syncdesign.Ui;component/Controls/Colors/Colors.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Syncdesign.Ui;component/Controls/ComboBox/ComboBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Syncdesign.Ui;component/Controls/DynamicScrollBar/DynamicScrollBar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Syncdesign.Ui;component/Controls/DynamicScrollViewer/DynamicScrollViewer.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Syncdesign.Ui;component/Controls/Icones/Icones.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Syncdesign.Ui;component/Controls/InlineEditableText/InlineEditableText.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Syncdesign.Ui;component/Controls/SearchBox/SearchBox.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Syncdesign.Ui;component/Controls/Messages/Messages.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Syncdesign.Ui;component/Controls/SearchBox/SearchBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Syncdesign.Ui;component/Controls/SectionExpander/SectionExpander.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Syncdesign.Ui;component/Controls/Segmented/Segmented.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Syncdesign.Ui;component/Controls/SectionExpander/SectionExpander.xaml" />        
+        <ResourceDictionary Source="pack://application:,,,/Syncdesign.Ui;component/Controls/TreeView/TreeView.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Syncdesign.Ui;component/Controls/TreeView/TreeViewItem.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
