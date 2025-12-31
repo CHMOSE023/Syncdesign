@@ -35,10 +35,10 @@
                 <DataTemplate>
                     <bim:Button  Margin="4" 
                                  Command="{Binding ClickCommand}" 
-                                 CommandParameter="{Binding}"
+                                 CommandParameter="{Binding}" 
                                  Style="{StaticResource SidebarButtonStyle}" >
                         <StackPanel>
-                            <bim:SymbolIcon FontSize="20"   Symbol="{Binding Symbol}"/>
+                            <bim:SymbolIcon FontSize="20" Filled="True"  Symbol="{Binding Symbol}"/>
                             <Label Content="{Binding Title}" 
                                    Padding="0" 
                                    FontSize="11"

@@ -20,40 +20,40 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ComboBox  Grid.Column="1" SelectedIndex="0" FontWeight="Bold">
+        <ComboBox  Grid.Column="1" SelectedIndex="0">
             <ComboBoxItem Width="auto">
-                <StackPanel Orientation="Horizontal">
-                    <bim:SymbolIcon FontSize="18" Symbol="Briefcase48"/>
+                <StackPanel Orientation="Horizontal" >
+                    <bim:SymbolIcon FontSize="18" Filled="True" Symbol="Briefcase48"/>
                     <Label Content="XT01-公司通用文件"/>
                 </StackPanel>
             </ComboBoxItem>
             <ComboBoxItem >
                 <StackPanel Orientation="Horizontal">
-                    <bim:SymbolIcon FontSize="18" Symbol="Briefcase48"/>
+                    <bim:SymbolIcon FontSize="18" Filled="True" Symbol="Briefcase48"/>
                     <Label Content="XT02-XXXXXX项目"/>
                 </StackPanel>
             </ComboBoxItem>
             <ComboBoxItem >
                 <StackPanel Orientation="Horizontal">
-                    <bim:SymbolIcon FontSize="18"  Symbol="Briefcase48"/>
+                    <bim:SymbolIcon FontSize="18" Filled="True" Symbol="Briefcase48"/>
                     <Label Content="XT03-XXXXXX项目"/>
                 </StackPanel>
             </ComboBoxItem>
             <ComboBoxItem >
                 <StackPanel Orientation="Horizontal">
-                    <bim:SymbolIcon FontSize="18" Symbol="Briefcase48"/>
+                    <bim:SymbolIcon FontSize="18" Filled="True" Symbol="Briefcase48"/>
                     <Label Content="XT04-XXXXXX项目"/>
                 </StackPanel>
             </ComboBoxItem>
             <ComboBoxItem >
                 <StackPanel Orientation="Horizontal">
-                    <bim:SymbolIcon FontSize="18" Symbol="Briefcase48"/>
+                    <bim:SymbolIcon FontSize="18" Filled="True" Symbol="Briefcase48"/>
                     <Label Content="XT05-XXXXXX项目"/>
                 </StackPanel>
             </ComboBoxItem>
             <ComboBoxItem >
                 <StackPanel Orientation="Horizontal">
-                    <bim:SymbolIcon FontSize="18" Symbol="Briefcase48"/>
+                    <bim:SymbolIcon FontSize="18" Filled="True" Symbol="Briefcase48"/>
                     <Label Content="XT06-XXXXXX项目"/>
                 </StackPanel>
             </ComboBoxItem>
