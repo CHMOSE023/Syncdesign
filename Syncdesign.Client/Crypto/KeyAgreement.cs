@@ -1,7 +1,7 @@
 ﻿using Org.BouncyCastle.Crypto.Agreement;
 using Org.BouncyCastle.Crypto.Parameters;
 
-namespace Syncdesign.Client;
+namespace Syncdesign.Client.Crypto;
 
 /// <summary>
 /// 密钥交换（X25519）

@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Syncdesign.Client;
+﻿namespace Syncdesign.Client.Session;
 /// <summary>
-/// 握手消息
+/// 握手消息数据结构
 /// </summary>
 public sealed class HandshakeMessage
 {

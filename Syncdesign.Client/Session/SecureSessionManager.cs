@@ -1,9 +1,9 @@
 ﻿using Org.BouncyCastle.Crypto.Parameters;
 
-namespace Syncdesign.Client;
+namespace Syncdesign.Client.Session;
 
 /// <summary>
-/// 会话管理器
+/// 管理多个会话、失效重建
 /// </summary>
 public class SecureSessionManager
 {

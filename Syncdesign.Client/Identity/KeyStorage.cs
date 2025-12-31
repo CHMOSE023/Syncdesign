@@ -1,5 +1,7 @@
-﻿namespace Syncdesign.Client;
-
+﻿namespace Syncdesign.Client.Identity;
+/// <summary>
+/// 保存/加载长期私钥，提供 LoadOrCreatePrivateKey()
+/// </summary>
 public static class KeyStorage
 {
     private static readonly string KeyPath =

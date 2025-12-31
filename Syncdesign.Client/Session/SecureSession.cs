@@ -2,12 +2,13 @@
 using Org.BouncyCastle.Crypto.Generators;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Security;
+using Syncdesign.Client.Crypto;
 using System.Security.Cryptography;
 
-namespace Syncdesign.Client;
+namespace Syncdesign.Client.Session;
 
 /// <summary>
-/// 加密会话
+/// 单会话逻辑（握手、AES 密钥）
 /// </summary>
 public sealed class SecureSession
 { 
@@ -15,13 +16,13 @@ public sealed class SecureSession
     private readonly string _localDeviceId;
     private readonly Ed25519PrivateKeyParameters _localIdentityPrivate;
     private readonly Ed25519PublicKeyParameters _localIdentityPublic;
-
+   
     private Ed25519PublicKeyParameters? _remoteIdentityPublic;
 
     // ===== 会话（临时）=====
     private AsymmetricCipherKeyPair? _x25519KeyPair;
     private byte[]? _sharedSecret;
-
+    public byte[] AesKey => _aesKey ?? throw new InvalidOperationException("Session not established");
     // ===== 对称加密 =====
     private byte[]? _aesKey;
 

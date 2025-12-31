@@ -3,30 +3,12 @@ using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.Crypto.Generators;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Security;
+using Syncdesign.Client.Crypto;
+using Syncdesign.Client.Identity;
+using Syncdesign.Client.Session;
 using System.Text;
 
-namespace Syncdesign.Client;
- 
-
-
-public static class SignatureUtil
-{
-    public static byte[] Sign(byte[] data, Ed25519PrivateKeyParameters privateKey)
-    {
-        var signer = new Org.BouncyCastle.Crypto.Signers.Ed25519Signer();
-        signer.Init(true, privateKey);
-        signer.BlockUpdate(data, 0, data.Length);
-        return signer.GenerateSignature();
-    }
-
-    public static bool Verify(byte[] data, byte[] signature, Ed25519PublicKeyParameters publicKey)
-    {
-        var verifier = new Org.BouncyCastle.Crypto.Signers.Ed25519Signer();
-        verifier.Init(false, publicKey);
-        verifier.BlockUpdate(data, 0, data.Length);
-        return verifier.VerifySignature(signature);
-    }
-}
+namespace Syncdesign.Client.Client;
 
 
 public class Client
@@ -150,7 +132,7 @@ public class Client
         string pem = KeyStorage.LoadOrCreatePrivateKey();
 
         // 2. 计算 Device ID（非法会直接抛异常）
-        string deviceId = SyncthingDeviceId.FromPrivateKeyPem(pem);
+        string deviceId = SyncdesignDeviceId.FromPrivateKeyPem(pem);
 
         // 3. 解析 Ed25519 私钥
         using var reader = new StringReader(pem);
@@ -184,7 +166,7 @@ public class Client
         string pem = KeyStorage.LoadOrCreatePrivateKey();
         Console.WriteLine(pem);
 
-        string deviceId = SyncthingDeviceId.FromPrivateKeyPem(pem);
+        string deviceId = SyncdesignDeviceId.FromPrivateKeyPem(pem);
         Console.WriteLine("Device ID:");
         Console.WriteLine(deviceId);
 
@@ -265,4 +247,51 @@ public class Client
             if (a[i] != b[i]) return false;
         return true;
     }
+
+    /** 
+     *            架构概览
+     *  ┌─────────────────────────────┐
+        │        应用层 (App Layer)   │
+        │  - 消息处理逻辑             │
+        │  - 文件 / 命令 / 数据解析  │
+        └─────────────┬───────────────┘
+                      │
+                      ▼
+        ┌─────────────────────────────┐
+        │      会话层 (Session Layer) │
+        │  SecureSessionManager       │
+        │  - 管理 SecureSession      │
+        │  - 会话超时 / 失效 /重建   │
+        │  - 会话加密 / 解密          │
+        └─────────────┬───────────────┘
+                      │
+                      ▼
+        ┌─────────────────────────────┐
+        │   握手层 (Handshake Layer)  │
+        │  - Ed25519 身份验证         │
+        │  - X25519 会话密钥交换      │
+        │  - 消息签名/验证            │
+        └─────────────┬───────────────┘
+                      │
+                      ▼
+        ┌─────────────────────────────┐
+        │    加密层 (Crypto Layer)    │
+        │  SymmetricCrypto (AES-GCM)  │
+        │  - 消息加解密               │
+        │  - Nonce / IV 管理          │
+        └─────────────┬───────────────┘
+                      │
+                      ▼
+        ┌─────────────────────────────┐
+        │      网络层 (Transport)     │
+        │  - UDP Socket / Datagram    │
+        │  - 消息打包/解包            │
+        │  - 包序号 / ACK / 重传      │
+        └─────────────────────────────┘
+
+    [App Layer]  -----> Encrypt -----> [Session Manager] -----> [Handshake/AES-GCM] -----> [UDP Socket] -----> [Network]
+
+    [Network] -----> Receive -----> [Handshake/AES-GCM] -----> Decrypt -----> [Session Manager] -----> [App Layer]
+
+     */
 }
