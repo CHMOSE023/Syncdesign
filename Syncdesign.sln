@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.36811.4 d17.14
+# Visual Studio Version 18
+VisualStudioVersion = 18.1.11312.151 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syncdesign.AutoCAD", "Syncdesign.AutoCAD\Syncdesign.AutoCAD.csproj", "{1D452C2F-1756-4F31-BBC9-4CCEA5E8216B}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syncdesign.Presentation", "Syncdesign.Presentation\Syncdesign.Presentation.csproj", "{7FD1AFFB-A83C-45A2-80B8-6DA164C054C3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syncdesign.Presentation.Example", "Syncdesign.Presentation.Example\Syncdesign.Presentation.Example.csproj", "{06E96AC1-D015-4DD9-9BA4-357A340EA071}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syncdesign.Client", "Syncdesign.Client\Syncdesign.Client.csproj", "{A3194932-C662-42A2-A73D-A485922EB7B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{06E96AC1-D015-4DD9-9BA4-357A340EA071}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06E96AC1-D015-4DD9-9BA4-357A340EA071}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06E96AC1-D015-4DD9-9BA4-357A340EA071}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3194932-C662-42A2-A73D-A485922EB7B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3194932-C662-42A2-A73D-A485922EB7B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3194932-C662-42A2-A73D-A485922EB7B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3194932-C662-42A2-A73D-A485922EB7B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
