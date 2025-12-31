@@ -6,13 +6,8 @@ using Org.BouncyCastle.Security;
 using System.Text;
 
 namespace Syncdesign.Client;
+ 
 
-public class HandshakeMessage
-{
-    public string DeviceId { get; set; } = default!;
-    public byte[] X25519PublicKey { get; set; } = default!;
-    public byte[] Signature { get; set; } = default!;
-}
 
 public static class SignatureUtil
 {
